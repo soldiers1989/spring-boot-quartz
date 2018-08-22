@@ -1,6 +1,7 @@
 package com.pgy.ginko.quartz.dao;
 
 import com.pgy.ginko.quartz.model.ScheduleJob;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,11 +12,12 @@ import java.util.List;
 
 /**
  * @author ginko
- * @description ${todo}
+ * @description test Dao
  * @date 2018/8/22 19:28
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Slf4j
 public class JobDaoTest {
 
     @Resource
@@ -26,6 +28,8 @@ public class JobDaoTest {
         List<ScheduleJob> jobList = jobDao.getAllJob();
 
         List<ScheduleJob> jobList1 = jobDao.getAllEnableJob();
+
+        log.info("test Dao");
 
     }
 

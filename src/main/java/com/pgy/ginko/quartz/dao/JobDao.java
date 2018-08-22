@@ -3,7 +3,6 @@ package com.pgy.ginko.quartz.dao;
 
 import com.pgy.ginko.quartz.model.ScheduleJob;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.BaseMapper;
 
