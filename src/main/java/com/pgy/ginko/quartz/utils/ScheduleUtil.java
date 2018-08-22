@@ -1,7 +1,6 @@
-package com.pgy.ginko.quartz.job;
+package com.pgy.ginko.quartz.utils;
 
 import com.pgy.ginko.quartz.model.ScheduleJob;
-import com.pgy.ginko.quartz.utils.ServiceException;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

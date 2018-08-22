@@ -1,7 +1,7 @@
 package com.pgy.ginko.quartz.service;
 
 import com.pgy.ginko.quartz.dao.JobDao;
-import com.pgy.ginko.quartz.job.ScheduleUtil;
+import com.pgy.ginko.quartz.utils.ScheduleUtil;
 import com.pgy.ginko.quartz.model.ScheduleJob;
 import com.pgy.ginko.quartz.utils.ServiceException;
 import lombok.extern.slf4j.Slf4j;

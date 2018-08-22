@@ -180,3 +180,7 @@ INSERT INTO quartz.schedule_job (id, class_name, cron_expression, job_name, job_
 VALUES (1, 'com.pgy.ginko.quartz.job.TestJob', '*/10 * * * * ?', 'testJob', 'TEST_GROUP', 'TEST_TRIGGER',
            'TEST_GROUP', 0, 1, 'test Job for SpringBoot', '2018-02-12 14:14:03', '2018-02-12 15:23:24');
 
+INSERT INTO quartz.schedule_job (id, class_name, cron_expression, job_name, job_group, trigger_name, trigger_group, pause, enable, description, create_time, last_update_time)
+VALUES (2, 'com.pgy.ginko.quartz.job.GinkoJob', '*/10 * * * * ?', 'ginkoJob', 'TEST_GROUP', 'TEST_TRIGGER',
+           'TEST_GROUP', 0, 1, 'ginko Job for SpringBoot', '2018-02-12 14:14:03', '2018-02-12 15:23:24');
+

@@ -1,6 +1,6 @@
 package com.pgy.ginko.quartz.config;
 
-import com.pgy.ginko.quartz.job.ScheduleUtil;
+import com.pgy.ginko.quartz.utils.ScheduleUtil;
 import com.pgy.ginko.quartz.model.ScheduleJob;
 import com.pgy.ginko.quartz.service.JobService;
 import com.pgy.ginko.quartz.utils.ServiceException;
@@ -8,7 +8,6 @@ import org.quartz.CronTrigger;
 import org.quartz.Scheduler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
