@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @description 定时任务管理
@@ -33,20 +35,20 @@ public class JobController {
 
     @GetMapping("/{id}")
     @ApiOperation(value = "条件查询（DONE）")
-    public CommonResponse getJob(@PathVariable("id") Long jobId) throws ServiceException {
-        return ResponseUtil.generateResponse(jobService.select(jobId));
+    public CommonResponse getJob(@PathVariable("id") Long id) throws ServiceException {
+        return ResponseUtil.generateResponse(jobService.select(id));
     }
 
     @PutMapping("/update/{id}")
     @ApiOperation(value = "条件更新（DONE）")
-    public CommonResponse updateJob(@PathVariable("id") Long jobId, @RequestBody ScheduleJob newScheduleJob) throws ServiceException {
-        return ResponseUtil.generateResponse(jobService.update(jobId, newScheduleJob));
+    public CommonResponse updateJob(@PathVariable("id") Long id, @RequestBody ScheduleJob newScheduleJob) throws ServiceException {
+        return ResponseUtil.generateResponse(jobService.update(id, newScheduleJob));
     }
 
     @DeleteMapping("/delete/{id}")
     @ApiOperation(value = "条件删除（DONE）")
-    public CommonResponse deleteJob(@PathVariable("id") Long jobId) throws ServiceException {
-        return ResponseUtil.generateResponse(jobService.delete(jobId));
+    public CommonResponse deleteJob(@PathVariable("id") Long id) throws ServiceException {
+        return ResponseUtil.generateResponse(jobService.delete(id));
     }
 
     @PostMapping("/save")
@@ -58,21 +60,21 @@ public class JobController {
 
     @PutMapping("/run/{id}")
     @ApiOperation(value = "运行条件定时任务（DONE）")
-    public CommonResponse runJob(@PathVariable("id") Long jobId) throws ServiceException {
-        return ResponseUtil.generateResponse(jobService.run(jobId));
+    public CommonResponse runJob(@PathVariable("id") Long id) throws ServiceException {
+        return ResponseUtil.generateResponse(jobService.run(id));
     }
 
 
     @PutMapping("/pause/{id}")
     @ApiOperation(value = "暂停条件定时任务（DONE）")
-    public CommonResponse pauseJob(@PathVariable("id") Long jobId) throws ServiceException {
-        return ResponseUtil.generateResponse(jobService.pause(jobId));
+    public CommonResponse pauseJob(@PathVariable("id") Long id) throws ServiceException {
+        return ResponseUtil.generateResponse(jobService.pause(id));
     }
 
     @PutMapping("/resume/{id}")
     @ApiOperation(value = "恢复条件定时任务（DONE）")
-    public CommonResponse resumeJob(@PathVariable("id") Long jobId) throws ServiceException {
-        return ResponseUtil.generateResponse(jobService.resume(jobId));
+    public CommonResponse resumeJob(@PathVariable("id") Long id) throws ServiceException {
+        return ResponseUtil.generateResponse(jobService.resume(id));
     }
 
 }
