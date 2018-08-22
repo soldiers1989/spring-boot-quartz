@@ -10,7 +10,6 @@ DROP TABLE IF EXISTS QRTZ_TRIGGERS;
 DROP TABLE IF EXISTS QRTZ_JOB_DETAILS;
 DROP TABLE IF EXISTS QRTZ_CALENDARS;
 
-
 CREATE TABLE QRTZ_JOB_DETAILS
   (
     SCHED_NAME VARCHAR(120) NOT NULL,
@@ -176,11 +175,11 @@ CREATE TABLE schedule_job (
 CREATE INDEX i_schedule_job_id
   ON schedule_job (id);
 
-# INSERT INTO ginko_quartz.schedule_job (id, class_name, cron_expression, job_name, job_group, trigger_name, trigger_group, pause, enable, description, create_time, last_update_time)
+# INSERT INTO schedule_job (id, class_name, cron_expression, job_name, job_group, trigger_name, trigger_group, pause, enable, description, create_time, last_update_time)
 # VALUES (1, 'com.pgy.ginko.quartz.job.TestJob', '*/50 * * * * ?', 'testJob', 'TEST_GROUP', 'TEST_TRIGGER',
 #            'TEST_GROUP', 0, 1, 'test Job for SpringBoot', '2018-02-12 14:14:03', '2018-02-12 15:23:24');
 #
-# INSERT INTO ginko_quartz.schedule_job (id, class_name, cron_expression, job_name, job_group, trigger_name, trigger_group, pause, enable, description, create_time, last_update_time)
+# INSERT INTO schedule_job (id, class_name, cron_expression, job_name, job_group, trigger_name, trigger_group, pause, enable, description, create_time, last_update_time)
 # VALUES (2, 'com.pgy.ginko.quartz.job.GinkoJob', '*/60 * * * * ?', 'ginkoJob', 'TEST_GROUP', 'TEST_TRIGGER',
 #            'TEST_GROUP', 0, 1, 'ginko Job for SpringBoot', '2018-02-12 14:14:03', '2018-02-12 15:23:24');
 #
