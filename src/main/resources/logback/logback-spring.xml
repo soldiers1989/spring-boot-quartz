@@ -45,7 +45,7 @@
             <fileNamePattern>${LOG_PATH}/debug/ginko-quartz-log_debug-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!--
                 除按日志记录之外，还配置了日志文件不能超过500M，若超过500M，日志文件会以索引0开始，
-                命名日志文件，例如log-error-2017-04-26.0.log
+                命名日志文件，例如log-error-2017-04-26.0.logback
             -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>500MB</maxFileSize>
@@ -79,7 +79,7 @@
             <fileNamePattern>${LOG_PATH}/info/ginko-quartz-log-info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!--
                 除按日志记录之外，还配置了日志文件不能超过500M，若超过500M，日志文件会以索引0开始，
-                命名日志文件，例如log-error-2017-04-26.0.log
+                命名日志文件，例如log-error-2017-04-26.0.logback
             -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>500MB</maxFileSize>
@@ -114,7 +114,7 @@
             <fileNamePattern>${LOG_PATH}/warn/ginko-quartz-log-warn-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!--
                 除按日志记录之外，还配置了日志文件不能超过500M，若超过500M，日志文件会以索引0开始，
-                命名日志文件，例如log-error-2017-04-26.0.log
+                命名日志文件，例如log-error-2017-04-26.0.logback
             -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>500MB</maxFileSize>
@@ -149,7 +149,7 @@
             <fileNamePattern>${LOG_PATH}/error/ginko-quartz-log-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!--
                 除按日志记录之外，还配置了日志文件不能超过500M，若超过500M，日志文件会以索引0开始，
-                命名日志文件，例如log-error-2017-04-26.0.log
+                命名日志文件，例如log-error-2017-04-26.0.logback
             -->
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>500MB</maxFileSize>
