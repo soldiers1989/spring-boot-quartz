@@ -7,33 +7,17 @@
         enable, description, create_time, last_update_time
     </sql>
 
-    <resultMap id="baseResultMap" type="com.pgy.ginko.quartz.model.ScheduleJob">
-        <id column="id" property="id" javaType="java.lang.Long" jdbcType="INTEGER"/>
-        <result column="class_name" property="className" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        <result column="cron_expression" property="cronExpression" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        <result column="job_name" property="jobName" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        <result column="job_group" property="jobGroup" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        <result column="trigger_name" property="triggerName" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        <result column="trigger_group" property="triggerGroup" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        <result column="pause" property="pause" javaType="java.lang.Boolean" jdbcType="BOOLEAN"/>
-        <result column="enable" property="enable" javaType="java.lang.Boolean" jdbcType="BOOLEAN"/>
-        <result column="description" property="description" javaType="java.lang.String" jdbcType="VARCHAR"/>
-        <result column="create_time" property="createTime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
-        <result column="last_update_time" property="lastUpdateTime" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
-    </resultMap>
-
-
-    <select id="getAllJob" resultMap="baseResultMap">
+    <select id="getAllJob" resultType="com.pgy.ginko.quartz.model.ScheduleJob">
         SELECT
         <include refid="baseColumnSql"/>
         FROM schedule_job
     </select>
 
-    <select id="getAllEnableJob" resultMap="baseResultMap">
+    <select id="getAllEnableJob" resultType="com.pgy.ginko.quartz.model.ScheduleJob">
         SELECT
         <include refid="baseColumnSql"/>
         FROM schedule_job
-        WHERE enable = TRUE
+        WHERE enable = 1
     </select>
 
 
