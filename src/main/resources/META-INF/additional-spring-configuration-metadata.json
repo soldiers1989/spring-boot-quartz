@@ -1,0 +1,154 @@
+{
+  "properties": [
+    {
+      "name": "spring.datasource.druid.master.username",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.master.username."
+    },
+    {
+      "name": "spring.datasource.druid.master.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.master.name."
+    },
+    {
+      "name": "spring.datasource.druid.master.url",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.master.url."
+    },
+    {
+      "name": "spring.datasource.druid.master.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.master.driver-class-name."
+    },
+    {
+      "name": "spring.datasource.druid.master.port",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.master.port."
+    },
+    {
+      "name": "spring.datasource.druid.master.password",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.master.password."
+    },
+    {
+      "name": "spring.datasource.druid.slave-alpha.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-alpha.name."
+    },
+    {
+      "name": "spring.datasource.druid.slave-alpha.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-alpha.driver-class-name."
+    },
+    {
+      "name": "spring.datasource.druid.slave-alpha.url",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-alpha.url."
+    },
+    {
+      "name": "spring.datasource.druid.slave-alpha.port",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-alpha.port."
+    },
+    {
+      "name": "spring.datasource.druid.slave-alpha.username",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-alpha.username."
+    },
+    {
+      "name": "spring.datasource.druid.slave-alpha.password",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-alpha.password."
+    },
+    {
+      "name": "spring.datasource.druid.slave-beta.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-beta.name."
+    },
+    {
+      "name": "spring.datasource.druid.slave-beta.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-beta.driver-class-name."
+    },
+    {
+      "name": "spring.datasource.druid.slave-beta.url",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-beta.url."
+    },
+    {
+      "name": "spring.datasource.druid.slave-beta.port",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-beta.port."
+    },
+    {
+      "name": "spring.datasource.druid.slave-beta.username",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-beta.username."
+    },
+    {
+      "name": "spring.datasource.druid.slave-beta.password",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-beta.password."
+    },
+    {
+      "name": "spring.datasource.druid.slave-gamma.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-gamma.name."
+    },
+    {
+      "name": "spring.datasource.druid.slave-gamma.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-gamma.driver-class-name."
+    },
+    {
+      "name": "spring.datasource.druid.slave-gamma.url",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-gamma.url."
+    },
+    {
+      "name": "spring.datasource.druid.slave-gamma.port",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-gamma.port."
+    },
+    {
+      "name": "spring.datasource.druid.slave-gamma.username",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-gamma.username."
+    },
+    {
+      "name": "spring.datasource.druid.slave-gamma.password",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-gamma.password."
+    },
+    {
+      "name": "spring.datasource.druid.slave-quartz.name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-quartz.name."
+    },
+    {
+      "name": "spring.datasource.druid.slave-quartz.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-quartz.driver-class-name."
+    },
+    {
+      "name": "spring.datasource.druid.slave-quartz.url",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-quartz.url."
+    },
+    {
+      "name": "spring.datasource.druid.slave-quartz.port",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-quartz.port."
+    },
+    {
+      "name": "spring.datasource.druid.slave-quartz.username",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-quartz.username."
+    },
+    {
+      "name": "spring.datasource.druid.slave-quartz.password",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.slave-quartz.password."
+    }
+  ]
+}
