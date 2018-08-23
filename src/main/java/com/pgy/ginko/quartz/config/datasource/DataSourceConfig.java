@@ -110,7 +110,7 @@ public class DataSourceConfig {
 
         // 将 Slave 数据源的 key 放在集合中，用于轮循
         DynamicDataSourceContextHolder.slaveDataSourceKeys.addAll(dataSourceMap.keySet());
-        DynamicDataSourceContextHolder.slaveDataSourceKeys.remove(DataSourceKey.master.getName());
+//        DynamicDataSourceContextHolder.slaveDataSourceKeys.remove(DataSourceKey.master.getName());
         return dynamicRoutingDataSource;
     }
 

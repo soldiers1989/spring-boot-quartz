@@ -32,7 +32,7 @@ public class ScheduleConfig {
      * @return
      */
     @Bean
-    public SchedulerFactoryBean schedulerFactoryBean(@Qualifier("master") DataSource quartzDataSource) {
+    public SchedulerFactoryBean schedulerFactoryBean(@Qualifier("slaveQuartz") DataSource quartzDataSource) {
         SchedulerFactoryBean schedulerFactoryBean = new SchedulerFactoryBean();
         schedulerFactoryBean.setSchedulerName("TASK_EXECUTOR");
         schedulerFactoryBean.setStartupDelay(10);
