@@ -14,7 +14,6 @@ import tk.mybatis.mapper.common.BaseMapper;
  */
 @Mapper
 @Component(value = "productDao")
-@DataSource(DataSourceKey.master)
 public interface ProductDao extends BaseMapper<Product> {
 
 

@@ -1,5 +1,7 @@
 package com.pgy.ginko.quartz.service;
 
+import com.pgy.ginko.quartz.annotation.DataSource;
+import com.pgy.ginko.quartz.common.DataSourceKey;
 import com.pgy.ginko.quartz.dao.job.JobDao;
 import com.pgy.ginko.quartz.utils.ScheduleUtil;
 import com.pgy.ginko.quartz.model.ScheduleJob;
@@ -26,6 +28,7 @@ public class JobService {
     @Resource
     private Scheduler scheduler;
 
+    @DataSource(DataSourceKey.slaveQuartz)
     public List<ScheduleJob> getAllEnableJob() {
         return jobDao.getAllEnableJob();
     }
