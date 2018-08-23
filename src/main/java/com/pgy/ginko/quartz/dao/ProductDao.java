@@ -1,5 +1,7 @@
 package com.pgy.ginko.quartz.dao;
 
+import com.pgy.ginko.quartz.annotation.DataSource;
+import com.pgy.ginko.quartz.common.DataSourceKey;
 import com.pgy.ginko.quartz.model.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
@@ -12,6 +14,7 @@ import tk.mybatis.mapper.common.BaseMapper;
  */
 @Mapper
 @Component(value = "productDao")
+@DataSource(DataSourceKey.master)
 public interface ProductDao extends BaseMapper<Product> {
 
 

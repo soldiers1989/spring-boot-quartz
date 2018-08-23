@@ -32,7 +32,7 @@ public class DataSourceConfig {
      * @ConfigurationProperties 注解用于从 application.properties 文件中读取配置，为 Bean 设置属性
      */
     @Bean("master")
-//    @Primary
+    @Primary
     @ConfigurationProperties(prefix = "spring.datasource.druid.master")
     public DataSource master() {
         return DruidDataSourceBuilder.create().build();
@@ -77,7 +77,6 @@ public class DataSourceConfig {
      * @return the data source
      */
     @Bean("slaveQuartz")
-    @Primary
     @ConfigurationProperties(prefix = "spring.datasource.druid.slave-quartz")
     public DataSource slaveQuartz() {
         return DruidDataSourceBuilder.create().build();
@@ -100,7 +99,7 @@ public class DataSourceConfig {
         dataSourceMap.put(DataSourceKey.slaveQuartz.getName(), slaveQuartz());
 
         // 将 master 数据源作为默认指定的数据源
-        dynamicRoutingDataSource.setDefaultTargetDataSource(slaveQuartz());
+        dynamicRoutingDataSource.setDefaultTargetDataSource(master());
         // 将 master 和 slave 数据源作为指定的数据源
         dynamicRoutingDataSource.setTargetDataSources(dataSourceMap);
 
@@ -109,7 +108,7 @@ public class DataSourceConfig {
 
         // 将 Slave 数据源的 key 放在集合中，用于轮循
         DynamicDataSourceContextHolder.slaveDataSourceKeys.addAll(dataSourceMap.keySet());
-        DynamicDataSourceContextHolder.slaveDataSourceKeys.remove(DataSourceKey.slaveQuartz.name());
+        DynamicDataSourceContextHolder.slaveDataSourceKeys.remove(DataSourceKey.master.getName());
         return dynamicRoutingDataSource;
     }
 

@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 /**
  * @author ginko
- * @description ${todo}
+ * @description ProductController
  * @date 2018/8/23 10:43
  */
 @RestController

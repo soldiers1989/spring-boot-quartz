@@ -63,7 +63,7 @@ public enum DataSourceKey {
         return null;
     }
 
-    public static Map<Integer, DataSourceKey> getCodeRoleTypeMap() {
+    public static Map<Integer, DataSourceKey> findDataSourceKeyMap() {
         if (!CollectionUtils.isEmpty(dataSourceKeyMap)) {
             return dataSourceKeyMap;
         }

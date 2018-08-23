@@ -5,7 +5,7 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
  * @author ginko
- * @description ${todo}
+ * @description 在访问数据库时会调用该类的 determineCurrentLookupKey() 方法获取数据库实例的 key
  * @date 2018/8/23 10:35
  */
 @Slf4j

@@ -30,7 +30,7 @@ public class DynamicDataSourceContextHolder {
      * 定义ThreadLocal时重写initialValue方法，返回用户想要的值
      * Maintain variable for every thread, to avoid effect other thread
      */
-    private static final ThreadLocal<String> CONTEXT_HOLDER = ThreadLocal.withInitial(DataSourceKey.slaveQuartz::getName);
+    private static final ThreadLocal<String> CONTEXT_HOLDER = ThreadLocal.withInitial(DataSourceKey.master::getName);
 
     /**
      * All DataSource List
@@ -68,6 +68,22 @@ public class DynamicDataSourceContextHolder {
             int datasourceKeyIndex = counter % slaveDataSourceKeys.size();
             CONTEXT_HOLDER.set(slaveDataSourceKeys.get(datasourceKeyIndex) == null ? "" : slaveDataSourceKeys.get(datasourceKeyIndex).toString());
             counter++;
+        } catch (Exception e) {
+            log.error("Switch slave datasource failed, error message is {}", e.getMessage());
+            useMasterDataSource();
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    /**
+     * 使用定时任务数据源
+     */
+    static void useSlaveQuartzSource() {
+        lock.lock();
+        try {
+            CONTEXT_HOLDER.set(DataSourceKey.slaveQuartz.getName());
         } catch (Exception e) {
             log.error("Switch slave datasource failed, error message is {}", e.getMessage());
             useMasterDataSource();
