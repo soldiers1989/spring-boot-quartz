@@ -18,12 +18,12 @@ import java.util.List;
  */
 @Service
 @Slf4j
+@DataSource(DataSourceKey.slaveAlpha)
 public class UserService {
 
     @Resource
     private UserDao userDao;
 
-    @DataSource(DataSourceKey.slaveAlpha)
     public User select(long userId) throws ServiceException {
         User user = userDao.selectByPrimaryKey(userId);
         if (user == null) {
@@ -32,7 +32,6 @@ public class UserService {
         return user;
     }
 
-    @DataSource(DataSourceKey.slaveAlpha)
     public List<User> getAllUser() {
         return userDao.selectAll();
     }

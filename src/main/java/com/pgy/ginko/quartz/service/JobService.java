@@ -20,6 +20,7 @@ import java.util.List;
  */
 @Service
 @Slf4j
+@DataSource(DataSourceKey.master)
 public class JobService {
 
     @Resource
@@ -28,12 +29,10 @@ public class JobService {
     @Resource
     private Scheduler scheduler;
 
-    @DataSource(DataSourceKey.master)
     public List<ScheduleJob> getAllEnableJob() {
         return jobDao.getAllEnableJob();
     }
 
-    @DataSource(DataSourceKey.master)
     public ScheduleJob select(Long jobId) throws ServiceException {
         ScheduleJob scheduleJob = jobDao.selectByPrimaryKey(jobId);
         if (scheduleJob == null) {
@@ -80,7 +79,6 @@ public class JobService {
         return true;
     }
 
-    @DataSource(DataSourceKey.master)
     public List<ScheduleJob> getAllJob() {
         return jobDao.getAllJob();
     }

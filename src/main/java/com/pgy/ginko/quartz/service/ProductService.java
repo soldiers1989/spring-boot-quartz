@@ -20,12 +20,13 @@ import java.util.List;
  */
 @Service
 @Slf4j
+@DataSource(DataSourceKey.master)
 public class ProductService {
 
     @Resource
     private ProductDao productDao;
 
-    @DataSource(DataSourceKey.master)
+
     public Product select(long productId) throws ServiceException {
         Product product = productDao.selectByPrimaryKey(productId);
         if (product == null) {
@@ -61,7 +62,6 @@ public class ProductService {
         return true;
     }
 
-    @DataSource(DataSourceKey.master)
     public List<Product> getAllProduct() {
         return productDao.selectAll();
     }

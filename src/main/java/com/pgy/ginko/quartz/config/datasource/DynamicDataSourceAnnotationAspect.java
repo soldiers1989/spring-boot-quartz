@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 @Component
 public class DynamicDataSourceAnnotationAspect {
 
-    @Before("@annotation(com.pgy.ginko.quartz.annotation.DataSource)")
+    @Before("execution(* com.pgy.ginko.quartz.service.*.*(..)) || @annotation(com.pgy.ginko.quartz.annotation.DataSource)")
     public void beforeSwitchDataSource(JoinPoint point) {
 
         //获得当前访问的class
@@ -39,7 +39,11 @@ public class DynamicDataSourceAnnotationAspect {
             // 判断是否存在@DataSource注解
             if (method.isAnnotationPresent(DataSource.class)) {
                 DataSource annotation = method.getAnnotation(DataSource.class);
-                // 取出注解中的数据源名
+                // 取出方法注解中的数据源名
+                dataSourceType = annotation.value();
+            } else if (className.isAnnotationPresent(DataSource.class)) {
+                DataSource annotation = className.getAnnotation(DataSource.class);
+                // 取出类注解中的数据源名
                 dataSourceType = annotation.value();
             }
         } catch (Exception e) {
