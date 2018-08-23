@@ -1,7 +1,5 @@
 package com.pgy.ginko.quartz.dao;
 
-import com.pgy.ginko.quartz.annotation.DataSource;
-import com.pgy.ginko.quartz.common.DataSourceKey;
 import com.pgy.ginko.quartz.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;

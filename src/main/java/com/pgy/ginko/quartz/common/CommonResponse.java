@@ -2,13 +2,15 @@ package com.pgy.ginko.quartz.common;
 
 
 import com.pgy.ginko.quartz.utils.JSONUtil;
+import lombok.ToString;
 
 /**
  * Response bean for format response
  *
- * @author HelloWood
- * @date 2017-07-11 15:33
+ * @author ginko
+ * @date 2018-8-23 18:37:26
  */
+@ToString
 public class CommonResponse {
 
     private int code;
@@ -16,6 +18,10 @@ public class CommonResponse {
     private String message;
 
     private Object data;
+
+    public static CommonResponse getNewInstance() {
+        return new CommonResponse();
+    }
 
     public int getCode() {
         return code;
@@ -44,8 +50,4 @@ public class CommonResponse {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return JSONUtil.toJSONString(this);
-    }
 }

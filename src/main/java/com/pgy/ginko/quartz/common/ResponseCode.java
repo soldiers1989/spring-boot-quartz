@@ -3,8 +3,8 @@ package com.pgy.ginko.quartz.common;
 /**
  * Response code
  *
- * @author HelloWood
- * @date 2017-07-11 15:41
+ * @author ginko
+ * @date 2018-8-23 18:37:26
  */
 public enum ResponseCode {
     SUCCESS(200),

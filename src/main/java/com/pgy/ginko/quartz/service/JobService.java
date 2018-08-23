@@ -28,11 +28,12 @@ public class JobService {
     @Resource
     private Scheduler scheduler;
 
-    @DataSource(DataSourceKey.slaveQuartz)
+    @DataSource(DataSourceKey.master)
     public List<ScheduleJob> getAllEnableJob() {
         return jobDao.getAllEnableJob();
     }
 
+    @DataSource(DataSourceKey.master)
     public ScheduleJob select(Long jobId) throws ServiceException {
         ScheduleJob scheduleJob = jobDao.selectByPrimaryKey(jobId);
         if (scheduleJob == null) {
@@ -79,6 +80,7 @@ public class JobService {
         return true;
     }
 
+    @DataSource(DataSourceKey.master)
     public List<ScheduleJob> getAllJob() {
         return jobDao.getAllJob();
     }

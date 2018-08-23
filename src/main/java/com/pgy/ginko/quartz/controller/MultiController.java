@@ -1,6 +1,11 @@
 package com.pgy.ginko.quartz.controller;
 
+import com.pgy.ginko.quartz.common.CommonResponse;
 import com.pgy.ginko.quartz.common.ResponseUtil;
+import com.pgy.ginko.quartz.model.Product;
+import com.pgy.ginko.quartz.model.ScheduleJob;
+import com.pgy.ginko.quartz.model.User;
+import com.pgy.ginko.quartz.service.JobService;
 import com.pgy.ginko.quartz.service.ProductService;
 import com.pgy.ginko.quartz.service.UserService;
 import com.pgy.ginko.quartz.utils.ServiceException;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author ginko
@@ -31,29 +37,46 @@ public class MultiController {
     @Resource
     private UserService userService;
 
+    @Resource
+    private JobService jobService;
+
     @GetMapping("/product")
     @ApiOperation(value = "产品列表")
-    public void testProducts() {
-        ResponseUtil.generateResponse(productService.getAllProduct());
+    public CommonResponse testProducts() {
+        List<Product> list = productService.getAllProduct();
+        return ResponseUtil.generateResponse(list);
     }
 
     @GetMapping("/product/{id}")
     @ApiOperation(value = "条件查询产品")
-    public void testProduct(@PathVariable("id") Long productId) throws ServiceException {
-        ResponseUtil.generateResponse(productService.select(productId));
+    public CommonResponse testProduct(@PathVariable("id") Long productId) throws ServiceException {
+        return ResponseUtil.generateResponse(productService.select(productId));
     }
 
     @GetMapping("/user")
     @ApiOperation(value = "用户列表")
-    public void testUsers() {
-
-        ResponseUtil.generateResponse(userService.getAllUser());
+    public CommonResponse testUsers() {
+        List<User> list = userService.getAllUser();
+        return ResponseUtil.generateResponse(list);
     }
 
     @GetMapping("/user/{id}")
     @ApiOperation(value = "条件查询用户")
-    public void testUser(@PathVariable("id") Long userId) throws ServiceException {
+    public CommonResponse testUser(@PathVariable("id") Long userId) throws ServiceException {
 
-        ResponseUtil.generateResponse(userService.select(userId));
+        return ResponseUtil.generateResponse(userService.select(userId));
+    }
+
+    @GetMapping("/job")
+    @ApiOperation(value = "定时任务列表")
+    public CommonResponse getAllJob() {
+        List<ScheduleJob> list = jobService.getAllJob();
+        return ResponseUtil.generateResponse(list);
+    }
+
+    @GetMapping("/job/{id}")
+    @ApiOperation(value = "条件查询定时任务")
+    public CommonResponse getJob(@PathVariable("id") Long id) throws ServiceException {
+        return ResponseUtil.generateResponse(jobService.select(id));
     }
 }

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class ServiceException extends Exception {
 
+    private static final long serialVersionUID = 3084168374922475640L;
+
     public ServiceException(String msg, Exception e) {
         super(msg + "\n" + e.getMessage());
     }

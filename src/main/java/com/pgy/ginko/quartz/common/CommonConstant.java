@@ -5,8 +5,8 @@ import java.time.format.DateTimeFormatter;
 /**
  * Common constant
  *
- * @author HelloWood
- * @date 2017-07-11 15:46
+ * @author ginko
+ * @date 2018-8-23 18:37:26
  */
 public class CommonConstant {
 

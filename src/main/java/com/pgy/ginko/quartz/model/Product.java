@@ -19,27 +19,19 @@ import java.io.Serializable;
 @Data
 @ToString
 @ApiModel
-@Table(name = "t_product")
+@Table(name = "product")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = -7960881983497310815L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(generator = "JDBC")
+    private Long id;
 
     @ApiModelProperty("产品名")
     private String name;
 
     @ApiModelProperty("价格")
     private long price;
-
-    public Product() {
-    }
-
-    public Product(String name, long price) {
-        this.name = name;
-        this.price = price;
-    }
 
 }
