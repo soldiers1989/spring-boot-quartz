@@ -24,7 +24,7 @@ import java.util.stream.IntStream;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class RedisCacheAutoConfigurationTest {
+public class RedisCacheAutoConfigTest {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 

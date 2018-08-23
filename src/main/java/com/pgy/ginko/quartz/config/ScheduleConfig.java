@@ -24,7 +24,7 @@ public class ScheduleConfig {
      * @return
      */
     @Bean
-    public SchedulerFactoryBean schedulerFactoryBean(@Qualifier("dataSource") DataSource dataSource) {
+    public SchedulerFactoryBean schedulerFactoryBean(@Qualifier("dynamicDataSource") DataSource dataSource) {
         SchedulerFactoryBean schedulerFactoryBean = new SchedulerFactoryBean();
         schedulerFactoryBean.setSchedulerName("TASK_EXECUTOR");
         schedulerFactoryBean.setStartupDelay(10);
