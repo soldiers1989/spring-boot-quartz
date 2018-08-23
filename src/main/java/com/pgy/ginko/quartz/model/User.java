@@ -25,7 +25,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 5603289846128272666L;
 
     @Id
-    @GeneratedValue(generator = "JDBC")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ApiModelProperty("用户名")
@@ -33,5 +33,20 @@ public class User implements Serializable {
 
     @ApiModelProperty("密码")
     private String password;
+
+    public User() {
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(Long id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
 
 }

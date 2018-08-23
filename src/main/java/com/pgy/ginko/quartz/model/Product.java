@@ -25,7 +25,7 @@ public class Product implements Serializable {
     private static final long serialVersionUID = -7960881983497310815L;
 
     @Id
-    @GeneratedValue(generator = "JDBC")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ApiModelProperty("产品名")

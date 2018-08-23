@@ -51,7 +51,7 @@ public class RedisCacheAutoConfigTest {
         log.info("[字符缓存结果] - [{}]", k1);
         //  以下只演示整合，具体Redis命令可以参考官方文档，Spring Data Redis 只是改了个名字而已，Redis支持的命令它都支持
         String key = "ginko:user:1";
-        redisCacheTemplate.opsForValue().set(key, new User());
+        redisCacheTemplate.opsForValue().set(key, new User(1L, "u1", "pa"));
         //  对应 String（字符串）
         final User user = (User) redisCacheTemplate.opsForValue().get(key);
         log.info("[对象缓存结果] - [{}]", user);
