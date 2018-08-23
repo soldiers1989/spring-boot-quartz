@@ -22,7 +22,7 @@ import java.util.Date;
 @Data
 @ToString
 @ApiModel
-@Table(name = "schedule_job")
+@Table(name = "t_schedule_job")
 public class ScheduleJob implements Serializable {
 
     private static final Long serialVersionUID = 1435515995276255188L;
