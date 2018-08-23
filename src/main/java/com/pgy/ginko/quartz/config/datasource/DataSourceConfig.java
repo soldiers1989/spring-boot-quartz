@@ -25,28 +25,28 @@ import java.util.Map;
 public class DataSourceConfig {
 
     /**
-     * master DataSource
+     * biz DataSource
      *
      * @return data source
      * @Primary 注解用于标识默认使用的 DataSource Bean，因为有5个 DataSource Bean，该注解可用于 master
      * 或 slave DataSource Bean, 但不能用于 dynamicDataSource Bean, 否则会产生循环调用
      * @ConfigurationProperties 注解用于从 application.properties 文件中读取配置，为 Bean 设置属性
      */
-    @Bean("master")
+    @Bean("biz")
     @Primary
-    @ConfigurationProperties(prefix = "spring.datasource.druid.master")
-    public DataSource master() {
+    @ConfigurationProperties(prefix = "spring.datasource.druid.biz")
+    public DataSource biz() {
         return DruidDataSourceBuilder.create().build();
     }
 
     /**
-     * Slave alpha data source.
+     * collection data source.
      *
      * @return the data source
      */
-    @Bean("slaveAlpha")
-    @ConfigurationProperties(prefix = "spring.datasource.druid.slave-alpha")
-    public DataSource slaveAlpha() {
+    @Bean("collection")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.collection")
+    public DataSource collection() {
         return DruidDataSourceBuilder.create().build();
     }
 
@@ -55,9 +55,9 @@ public class DataSourceConfig {
      *
      * @return the data source
      */
-    @Bean("slaveBeta")
-    @ConfigurationProperties(prefix = "spring.datasource.druid.slave-beta")
-    public DataSource slaveBeta() {
+    @Bean("risk")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.risk")
+    public DataSource risk() {
         return DruidDataSourceBuilder.create().build();
     }
 
@@ -66,9 +66,9 @@ public class DataSourceConfig {
      *
      * @return the data source
      */
-    @Bean("slaveGamma")
-    @ConfigurationProperties(prefix = "spring.datasource.druid.slave-gamma")
-    public DataSource slaveGamma() {
+    @Bean("ups")
+    @ConfigurationProperties(prefix = "spring.datasource.druid.ups")
+    public DataSource ups() {
         return DruidDataSourceBuilder.create().build();
     }
 
@@ -77,10 +77,10 @@ public class DataSourceConfig {
      *
      * @return the data source
      */
-    @Bean("slaveQuartz")
+    @Bean("quartz")
     @Order(0)
-    @ConfigurationProperties(prefix = "spring.datasource.druid.slave-quartz")
-    public DataSource slaveQuartz() {
+    @ConfigurationProperties(prefix = "spring.datasource.druid.quartz")
+    public DataSource quartz() {
         return DruidDataSourceBuilder.create().build();
     }
 
@@ -94,14 +94,14 @@ public class DataSourceConfig {
     public DataSource dynamicDataSource() {
         DynamicRoutingDataSource dynamicRoutingDataSource = new DynamicRoutingDataSource();
         Map<Object, Object> dataSourceMap = new HashMap<>(5);
-        dataSourceMap.put(DataSourceKey.master.getName(), master());
-        dataSourceMap.put(DataSourceKey.slaveAlpha.getName(), slaveAlpha());
-        dataSourceMap.put(DataSourceKey.slaveBeta.getName(), slaveBeta());
-        dataSourceMap.put(DataSourceKey.slaveGamma.getName(), slaveGamma());
-        dataSourceMap.put(DataSourceKey.slaveQuartz.getName(), slaveQuartz());
+        dataSourceMap.put(DataSourceKey.BIZ.getName(), biz());
+        dataSourceMap.put(DataSourceKey.COLLECTION.getName(), collection());
+        dataSourceMap.put(DataSourceKey.RISK.getName(), risk());
+        dataSourceMap.put(DataSourceKey.UPS.getName(), ups());
+        dataSourceMap.put(DataSourceKey.QUARTZ.getName(), quartz());
 
         // 将 master 数据源作为默认指定的数据源
-        dynamicRoutingDataSource.setDefaultTargetDataSource(master());
+        dynamicRoutingDataSource.setDefaultTargetDataSource(biz());
         // 将 master 和 slave 数据源作为指定的数据源
         dynamicRoutingDataSource.setTargetDataSources(dataSourceMap);
 

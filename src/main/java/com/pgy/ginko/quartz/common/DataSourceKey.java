@@ -14,15 +14,15 @@ public enum DataSourceKey {
     /**
      * product_master 数据库 product_slaveAlpha 数据库 product_slaveBeta 数据库product_slaveGamma 数据库
      */
-    master(0, "master"),
+    BIZ(0, "biz"),
 
-    slaveAlpha(1, "slaveAlpha"),
+    COLLECTION(1, "collection"),
 
-    slaveBeta(2, "slaveBeta"),
+    RISK(2, "risk"),
 
-    slaveGamma(3, "slaveGamma"),
+    UPS(3, "ups"),
 
-    slaveQuartz(4, "slaveQuartz");
+    QUARTZ(4, "quartz");
 
     private Integer code;
 

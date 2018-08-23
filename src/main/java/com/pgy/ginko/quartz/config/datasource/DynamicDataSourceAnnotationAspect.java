@@ -32,7 +32,7 @@ public class DynamicDataSourceAnnotationAspect {
         String methodName = point.getSignature().getName();
         //得到方法的参数的类型
         Class[] argClass = ((MethodSignature) point.getSignature()).getParameterTypes();
-        DataSourceKey dataSourceType = DataSourceKey.master;
+        DataSourceKey dataSourceType = DataSourceKey.BIZ;
         try {
             // 得到访问的方法对象
             Method method = className.getMethod(methodName, argClass);

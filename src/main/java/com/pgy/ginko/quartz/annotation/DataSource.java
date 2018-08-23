@@ -16,6 +16,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.TYPE})
 public @interface DataSource {
 
-    DataSourceKey value() default DataSourceKey.master;
+    DataSourceKey value() default DataSourceKey.BIZ;
 
 }

@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Service
 @Slf4j
-@DataSource(DataSourceKey.slaveAlpha)
+@DataSource(DataSourceKey.BIZ)
 public class UserService {
 
     @Resource

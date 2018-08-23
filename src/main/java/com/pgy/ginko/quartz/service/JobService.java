@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Service
 @Slf4j
-@DataSource(DataSourceKey.master)
+@DataSource(DataSourceKey.BIZ)
 public class JobService {
 
     @Resource
