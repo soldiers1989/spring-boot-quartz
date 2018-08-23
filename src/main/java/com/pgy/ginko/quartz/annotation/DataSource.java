@@ -13,9 +13,9 @@ import java.lang.annotation.Target;
  * @date 2018/8/23 15:30
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD,ElementType.TYPE})
+@Target({ElementType.METHOD})
 public @interface DataSource {
 
-    DataSourceKey value() default DataSourceKey.slaveQuartz;
+    DataSourceKey value() default DataSourceKey.master;
 
 }

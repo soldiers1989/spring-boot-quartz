@@ -21,7 +21,8 @@ import java.io.Serializable;
 @ApiModel
 @Table(name = "t_product")
 public class Product implements Serializable {
-    private static final long serialVersionUID = 1435515995276255188L;
+
+    private static final long serialVersionUID = -7960881983497310815L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,7 @@
 package com.pgy.ginko.quartz.service;
 
+import com.pgy.ginko.quartz.annotation.DataSource;
+import com.pgy.ginko.quartz.common.DataSourceKey;
 import com.pgy.ginko.quartz.dao.ProductDao;
 import com.pgy.ginko.quartz.model.Product;
 import com.pgy.ginko.quartz.utils.ServiceException;
@@ -23,6 +25,7 @@ public class ProductService {
     @Resource
     private ProductDao productDao;
 
+    @DataSource(DataSourceKey.master)
     public Product select(long productId) throws ServiceException {
         Product product = productDao.selectByPrimaryKey(productId);
         if (product == null) {
@@ -58,6 +61,7 @@ public class ProductService {
         return true;
     }
 
+    @DataSource(DataSourceKey.master)
     public List<Product> getAllProduct() {
         return productDao.selectAll();
     }

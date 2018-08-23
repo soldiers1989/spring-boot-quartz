@@ -1,18 +1,12 @@
 package com.pgy.ginko.quartz.config;
 
-import com.pgy.ginko.quartz.config.datasource.DynamicRoutingDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.pgy.ginko.quartz.common.DataSourceKey.slaveQuartz;
 
 /**
  * @author ginko
@@ -22,8 +16,6 @@ public class ScheduleConfig {
 
     @Resource
     private ScheduleJobFactory jobFactory;
-
-
 
     /**
      * To Configuration Quartz , not necessary, if not config this, will use default

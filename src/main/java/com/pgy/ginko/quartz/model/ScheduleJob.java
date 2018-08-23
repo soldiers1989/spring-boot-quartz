@@ -25,8 +25,7 @@ import java.util.Date;
 @Table(name = "schedule_job")
 public class ScheduleJob implements Serializable {
 
-    private static final Long serialVersionUID = 1435515995276255188L;
-
+    private static final long serialVersionUID = 6277049451181402935L;
     /**
      * 很关键：得加@Id 注解不让通用Mapper通过主键查找的所有方法都会失效
      */

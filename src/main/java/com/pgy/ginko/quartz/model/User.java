@@ -22,7 +22,7 @@ import java.io.Serializable;
 @ApiModel
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 8655851615465363473L;
+    private static final long serialVersionUID = 5603289846128272666L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
