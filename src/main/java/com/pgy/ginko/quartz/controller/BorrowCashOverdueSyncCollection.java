@@ -1,11 +1,15 @@
-//package com.pgy.ginko.quartz.service.collection;
+//package com.pgy.ginko.quartz.controller;
 //
 //import com.alibaba.fastjson.JSONObject;
-//import com.pgy.ginko.quartz.model.biz.LsdBorrowCashDo;
-//import com.pgy.ginko.quartz.model.biz.LsdResourceDo;
+//import com.pgy.ginko.quartz.common.constant.BizConstants;
+//import com.pgy.ginko.quartz.common.enums.ResourceSecType;
+//import com.pgy.ginko.quartz.common.enums.ResourceType;
+//import com.pgy.ginko.quartz.common.enums.YesNoStatus;
+//import com.pgy.ginko.quartz.model.biz.*;
 //import com.pgy.ginko.quartz.service.biz.*;
+//import com.pgy.ginko.quartz.service.biz.utils.CollectionSystemUtil;
 //import com.pgy.ginko.quartz.service.biz.utils.SmsUtil;
-//import jdk.management.resource.ResourceType;
+//import com.pgy.ginko.quartz.utils.DateUtil;
 //import org.springframework.stereotype.Component;
 //
 //import javax.annotation.Resource;
@@ -59,10 +63,8 @@
 //
 //    @Override
 //    public JobResult run() {
-//        JobResult jobResult = new JobResult();
-//        jobResult.setSuccess(true);
-//        jobResult.setMsg("success");
-//        logger.info("Start sync collection data,Starttime=" + new Date());
+//
+//        logger.info("Start sync collection data, StartTime=" + new Date());
 //
 //        LsdResourceDo lsdResourceDo = afResourceService.getResourceByTypeAndSecType(ResourceType.COLLECTION_DATE_CONFIGURATION.getCode(), ResourceSecType.COLLECTION_DATE_CONFIGURATION.getCode());
 //        Date currDate = new Date();
@@ -378,8 +380,6 @@
 //
 //        }
 //    }
-//
-//
 //
 //
 //}

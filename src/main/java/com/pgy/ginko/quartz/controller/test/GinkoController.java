@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.controller;
+package com.pgy.ginko.quartz.controller.test;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

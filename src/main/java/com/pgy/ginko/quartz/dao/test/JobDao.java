@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.dao.job;
+package com.pgy.ginko.quartz.dao.test;
 
 
 import com.pgy.ginko.quartz.model.test.ScheduleJob;

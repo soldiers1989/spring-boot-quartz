@@ -14,6 +14,7 @@
 //import com.pgy.ginko.quartz.service.biz.LsdBorrowCashService;
 //import com.pgy.ginko.quartz.service.biz.LsdCommitRecordService;
 //import com.pgy.ginko.quartz.service.biz.LsdRenewalDetailService;
+//import com.pgy.ginko.quartz.utils.DateUtil;
 //import com.pgy.ginko.quartz.utils.biz.DigestUtil;
 //import org.apache.commons.lang3.StringUtils;
 //import org.springframework.stereotype.Component;
@@ -48,7 +49,6 @@
 //    private LsdBorrowCashService borrowCashService;
 //
 //    private static String url = null;
-//
 //
 //    /**
 //     * 美期通过调用此接口向催收平台传入逾期借款数据

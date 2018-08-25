@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.dao;
+package com.pgy.ginko.quartz.dao.test;
 
 import com.pgy.ginko.quartz.model.test.Product;
 import org.apache.ibatis.annotations.Mapper;

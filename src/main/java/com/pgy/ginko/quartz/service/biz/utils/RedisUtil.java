@@ -10,14 +10,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-@Component
+@Component(value = "redisUtil")
 public final class RedisUtil {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
     // =============================common============================
-
     /**
      * 指定缓存失效时间
      *

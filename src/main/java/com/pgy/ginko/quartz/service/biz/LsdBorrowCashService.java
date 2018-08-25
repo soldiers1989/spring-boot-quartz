@@ -12,14 +12,17 @@ import java.util.List;
  */
 public interface LsdBorrowCashService extends BaseService<LsdBorrowCashDo> {
 
+
     Long getBorrowCashOverdueMaxCount();
 
-    List<LsdBorrowCashDo> getBorrowCashOverdueByBorrowId(int beginId, int endId);
+    LsdBorrowCashDo getBorrowCashById(Long id);
 
     List<Long> getBorrowOverdueFirstDayCount(Date day, int overDay);
 
     List<Long> getBorrowOverdueAnotherDayCount(Date day);
 
-    LsdBorrowCashDo getBorrowCashById(Long id);
+    List<LsdBorrowCashDo> getBorrowCashOverdueByBorrowId(int beginId, int endId);
+
+
 
 }

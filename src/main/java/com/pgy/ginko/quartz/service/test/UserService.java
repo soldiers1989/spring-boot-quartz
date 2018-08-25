@@ -2,7 +2,7 @@ package com.pgy.ginko.quartz.service.test;
 
 import com.pgy.ginko.quartz.annotation.DataSource;
 import com.pgy.ginko.quartz.common.enums.DataSourceKey;
-import com.pgy.ginko.quartz.dao.UserDao;
+import com.pgy.ginko.quartz.dao.test.UserDao;
 import com.pgy.ginko.quartz.model.test.User;
 import com.pgy.ginko.quartz.utils.ServiceException;
 import lombok.extern.slf4j.Slf4j;

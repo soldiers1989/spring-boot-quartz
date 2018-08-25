@@ -2,7 +2,7 @@ package com.pgy.ginko.quartz.service.test;
 
 import com.pgy.ginko.quartz.annotation.DataSource;
 import com.pgy.ginko.quartz.common.enums.DataSourceKey;
-import com.pgy.ginko.quartz.dao.job.JobDao;
+import com.pgy.ginko.quartz.dao.test.JobDao;
 import com.pgy.ginko.quartz.utils.ScheduleUtil;
 import com.pgy.ginko.quartz.model.test.ScheduleJob;
 import com.pgy.ginko.quartz.utils.ServiceException;

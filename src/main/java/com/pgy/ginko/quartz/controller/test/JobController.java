@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.controller;
+package com.pgy.ginko.quartz.controller.test;
 
 import com.pgy.ginko.quartz.common.response.CommonResponse;
 import com.pgy.ginko.quartz.common.response.ResponseUtil;
