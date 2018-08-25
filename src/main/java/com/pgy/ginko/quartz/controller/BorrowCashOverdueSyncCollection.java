@@ -8,8 +8,10 @@
 //import com.pgy.ginko.quartz.model.biz.*;
 //import com.pgy.ginko.quartz.service.biz.*;
 //import com.pgy.ginko.quartz.service.biz.utils.CollectionSystemUtil;
+//import com.pgy.ginko.quartz.service.biz.utils.RedisUtil;
 //import com.pgy.ginko.quartz.service.biz.utils.SmsUtil;
 //import com.pgy.ginko.quartz.utils.DateUtil;
+//import com.pgy.ginko.quartz.utils.NumberUtil;
 //import org.springframework.stereotype.Component;
 //
 //import javax.annotation.Resource;
@@ -21,7 +23,7 @@
 //import java.util.concurrent.Executors;
 //
 //@Component("borrowCashOverdueSyncCollection")
-//public class BorrowCashOverdueSyncCollection extends AbstractCronJob {
+//public class BorrowCashOverdueSyncCollection{
 //
 //    @Resource
 //    private LsdBorrowCashService borrowCashService;
@@ -45,23 +47,13 @@
 //    private LsdAssetService lsdAssetService;
 //
 //    @Resource
-//    BizCacheUtil bizCacheUtil;
+//    private RedisUtil redisUtil;
 //
 //    @Resource
-//    SmsUtil smsUtil;
+//    private SmsUtil smsUtil;
 //
 //    private ExecutorService threadPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
 //
-////    public ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
-////            10,//核心线程数
-////        20,//最大线程数
-////          60L,//保持时间
-////            TimeUnit.SECONDS,//时间单位
-////            new LinkedBlockingQueue<>(102400),//阻塞队列
-////            new ThreadFactoryBuilder().setNameFormat("borrowCashOverdueSyncCollection").build(),//线程工厂
-////            new ThreadPoolExecutor.AbortPolicy());//异常捕获器;
-//
-//    @Override
 //    public JobResult run() {
 //
 //        logger.info("Start sync collection data, StartTime=" + new Date());
@@ -235,7 +227,7 @@
 //                }
 //
 //                String lockKey = BizConstants.CACHEKEY_APPLY_RENEWAL_LOCK + cashDo.getUserId();
-//                boolean getLock = bizCacheUtil.getLock30Second(lockKey, "1");
+//                boolean getLock = redisUtil.getLock30Second(lockKey, "1");
 //                try {
 //                    if (getLock) {
 //
@@ -306,7 +298,7 @@
 //                    }
 //                } finally {
 //                    if (getLock) {
-//                        bizCacheUtil.delCache(lockKey);
+//                        redisUtil.delCache(lockKey);
 //                    }
 //                }
 //            } catch (Exception e) {
