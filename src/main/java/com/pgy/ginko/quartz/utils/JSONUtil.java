@@ -3,20 +3,18 @@ package com.pgy.ginko.quartz.utils;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.text.SimpleDateFormat;
 
 
 /**
- * @description JSON data util, for parse and generate JSON data
  * @author ginko
+ * @description JSON data util, for parse and generate JSON data
  * @date 2017-07-11 16:11
  */
+@Slf4j
 public class JSONUtil {
-
-    private static final Logger logger = LoggerFactory.getLogger(JSONUtil.class);
 
     /**
      * Transfer object to JSON string
@@ -38,7 +36,7 @@ public class JSONUtil {
         try {
             result = objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
-            logger.error("Generate JSON String error!" + e.getMessage());
+            log.error("Generate JSON String error!" + e.getMessage());
             e.printStackTrace();
         }
         return result;

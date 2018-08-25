@@ -1,15 +1,12 @@
 package com.pgy.ginko.quartz.config;
 
-import com.pgy.ginko.quartz.annotation.DataSource;
-import com.pgy.ginko.quartz.common.DataSourceKey;
+import com.pgy.ginko.quartz.model.test.ScheduleJob;
+import com.pgy.ginko.quartz.service.test.JobService;
 import com.pgy.ginko.quartz.utils.ScheduleUtil;
-import com.pgy.ginko.quartz.model.ScheduleJob;
-import com.pgy.ginko.quartz.service.JobService;
 import com.pgy.ginko.quartz.utils.ServiceException;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.CronTrigger;
 import org.quartz.Scheduler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -19,10 +16,9 @@ import java.util.List;
 /**
  * @author ginko
  */
+@Slf4j
 @Component
 public class ApplicationListener implements CommandLineRunner {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Resource
     private JobService jobService;
@@ -43,7 +39,7 @@ public class ApplicationListener implements CommandLineRunner {
                 } else {
                     ScheduleUtil.updateScheduleJob(scheduler, scheduleJob);
                 }
-                logger.info("Startup {}-{} success", scheduleJob.getJobGroup(), scheduleJob.getJobName());
+                log.info("Startup {}-{} success", scheduleJob.getJobGroup(), scheduleJob.getJobName());
             } catch (ServiceException e) {
                 e.printStackTrace();
             }

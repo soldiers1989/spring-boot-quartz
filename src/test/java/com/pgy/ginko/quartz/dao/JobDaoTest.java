@@ -1,7 +1,7 @@
 package com.pgy.ginko.quartz.dao;
 
 import com.pgy.ginko.quartz.dao.job.JobDao;
-import com.pgy.ginko.quartz.model.ScheduleJob;
+import com.pgy.ginko.quartz.model.test.ScheduleJob;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

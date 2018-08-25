@@ -1,6 +1,6 @@
 package com.pgy.ginko.quartz.config;
 
-import com.pgy.ginko.quartz.model.User;
+import com.pgy.ginko.quartz.model.test.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

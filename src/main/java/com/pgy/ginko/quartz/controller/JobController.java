@@ -1,18 +1,15 @@
 package com.pgy.ginko.quartz.controller;
 
-import com.pgy.ginko.quartz.common.CommonResponse;
-import com.pgy.ginko.quartz.common.ResponseUtil;
-import com.pgy.ginko.quartz.model.ScheduleJob;
-import com.pgy.ginko.quartz.service.JobService;
+import com.pgy.ginko.quartz.common.response.CommonResponse;
+import com.pgy.ginko.quartz.common.response.ResponseUtil;
+import com.pgy.ginko.quartz.model.test.ScheduleJob;
+import com.pgy.ginko.quartz.service.test.JobService;
 import com.pgy.ginko.quartz.utils.ServiceException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @description 定时任务管理

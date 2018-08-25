@@ -7,13 +7,13 @@
         enable, description, create_time, last_update_time
     </sql>
 
-    <select id="getAllJob" resultType="com.pgy.ginko.quartz.model.ScheduleJob">
+    <select id="getAllJob" resultType="com.pgy.ginko.quartz.model.test.ScheduleJob">
         SELECT
         <include refid="baseColumnSql"/>
         FROM schedule_job
     </select>
 
-    <select id="getAllEnableJob" resultType="com.pgy.ginko.quartz.model.ScheduleJob">
+    <select id="getAllEnableJob" resultType="com.pgy.ginko.quartz.model.test.ScheduleJob">
         SELECT
         <include refid="baseColumnSql"/>
         FROM schedule_job

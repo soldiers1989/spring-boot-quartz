@@ -1,6 +1,6 @@
 package com.pgy.ginko.quartz.annotation;
 
-import com.pgy.ginko.quartz.common.DataSourceKey;
+import com.pgy.ginko.quartz.common.enums.DataSourceKey;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

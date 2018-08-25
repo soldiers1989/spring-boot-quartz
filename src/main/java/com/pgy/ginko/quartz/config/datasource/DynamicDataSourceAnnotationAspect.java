@@ -1,7 +1,7 @@
 package com.pgy.ginko.quartz.config.datasource;
 
 import com.pgy.ginko.quartz.annotation.DataSource;
-import com.pgy.ginko.quartz.common.DataSourceKey;
+import com.pgy.ginko.quartz.common.enums.DataSourceKey;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;

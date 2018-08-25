@@ -1,9 +1,9 @@
 package com.pgy.ginko.quartz.controller;
 
-import com.pgy.ginko.quartz.common.CommonResponse;
-import com.pgy.ginko.quartz.common.ResponseUtil;
-import com.pgy.ginko.quartz.model.Product;
-import com.pgy.ginko.quartz.service.ProductService;
+import com.pgy.ginko.quartz.common.response.CommonResponse;
+import com.pgy.ginko.quartz.common.response.ResponseUtil;
+import com.pgy.ginko.quartz.model.test.Product;
+import com.pgy.ginko.quartz.service.test.ProductService;
 import com.pgy.ginko.quartz.utils.ServiceException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

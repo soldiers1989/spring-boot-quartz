@@ -1,13 +1,13 @@
 package com.pgy.ginko.quartz.controller;
 
-import com.pgy.ginko.quartz.common.CommonResponse;
-import com.pgy.ginko.quartz.common.ResponseUtil;
-import com.pgy.ginko.quartz.model.Product;
-import com.pgy.ginko.quartz.model.ScheduleJob;
-import com.pgy.ginko.quartz.model.User;
-import com.pgy.ginko.quartz.service.JobService;
-import com.pgy.ginko.quartz.service.ProductService;
-import com.pgy.ginko.quartz.service.UserService;
+import com.pgy.ginko.quartz.common.response.CommonResponse;
+import com.pgy.ginko.quartz.common.response.ResponseUtil;
+import com.pgy.ginko.quartz.model.test.Product;
+import com.pgy.ginko.quartz.model.test.ScheduleJob;
+import com.pgy.ginko.quartz.model.test.User;
+import com.pgy.ginko.quartz.service.test.JobService;
+import com.pgy.ginko.quartz.service.test.ProductService;
+import com.pgy.ginko.quartz.service.test.UserService;
 import com.pgy.ginko.quartz.utils.ServiceException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

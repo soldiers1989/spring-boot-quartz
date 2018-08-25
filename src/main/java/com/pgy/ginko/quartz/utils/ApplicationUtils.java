@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import static com.pgy.ginko.quartz.common.CommonConstant.DATE_TIME;
-import static com.pgy.ginko.quartz.common.CommonConstant.DATE_TIME_FORMATTER;
+import static com.pgy.ginko.quartz.common.constant.CommonConstant.DATE_TIME;
+import static com.pgy.ginko.quartz.common.constant.CommonConstant.DATE_TIME_FORMATTER;
 
 /**
  * @description The type Application utils.

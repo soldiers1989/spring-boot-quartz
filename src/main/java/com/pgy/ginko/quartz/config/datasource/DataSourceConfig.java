@@ -1,7 +1,7 @@
 package com.pgy.ginko.quartz.config.datasource;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
-import com.pgy.ginko.quartz.common.DataSourceKey;
+import com.pgy.ginko.quartz.common.enums.DataSourceKey;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;

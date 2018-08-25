@@ -1,6 +1,6 @@
 package com.pgy.ginko.quartz.dao;
 
-import com.pgy.ginko.quartz.model.User;
+import com.pgy.ginko.quartz.model.test.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.BaseMapper;
