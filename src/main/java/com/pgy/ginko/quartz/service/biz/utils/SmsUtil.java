@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.service.biz;
+package com.pgy.ginko.quartz.service.biz.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -6,9 +6,11 @@ import com.pgy.ginko.quartz.common.constant.BizConstants;
 import com.pgy.ginko.quartz.common.constant.CommonConstant;
 import com.pgy.ginko.quartz.common.enums.SmsChannelCodeEnum;
 import com.pgy.ginko.quartz.common.enums.SmsUsefulEnum;
+import com.pgy.ginko.quartz.common.http.HttpResult;
 import com.pgy.ginko.quartz.common.sms.SmsSendRequest;
 import com.pgy.ginko.quartz.common.sms.SmsSendResponse;
 import com.pgy.ginko.quartz.model.biz.SmsChannelDo;
+import com.pgy.ginko.quartz.service.biz.SmsChannelService;
 import com.pgy.ginko.quartz.utils.biz.ChuangLanSmsUtil;
 import com.pgy.ginko.quartz.utils.biz.DigestUtil;
 import lombok.Data;
@@ -37,7 +39,10 @@ public class SmsUtil {
     @Resource
     private SmsChannelService smsChannelService;
 
-    public boolean sendZhPushException(String mobile, String content) {
+    @Resource
+    private HttpApiService httpApiService;
+
+    public boolean sendZhPushException(String mobile, String content) throws Exception {
         SmsChannelDo query = new SmsChannelDo();
         query.setSmsUserfulCode(SmsUsefulEnum.NORMAL.toString());
         SmsChannelDo smsChannel = smsChannelService.findSmsChannel(query);
@@ -56,9 +61,9 @@ public class SmsUtil {
      * @param content      短信内容
      * @param smsChannelDo 短信渠道
      */
-    private static SmsResult doSendSms(String mobiles, String content, SmsChannelDo smsChannelDo) {
+    private SmsResult doSendSms(String mobiles, String content, SmsChannelDo smsChannelDo) throws Exception {
         SmsResult result = new SmsResult();
-        if (BizConstants.INVELOMENT_TYPE_TEST.equals(env)) {
+        if (BizConstants.ENVIRONMENT_TYPE_TEST.equals(env)) {
             result.setSucc(true);
             result.setResultStr("test");
             return result;
@@ -67,17 +72,17 @@ public class SmsUtil {
         // 请求短信通道
         String smsChannelCode = smsChannelDo.getSmsChannelCode();
         if (smsChannelCode.contains(SmsChannelCodeEnum.DAHAN.name())) {
-            Map<String, String> paramsMap = new HashMap<>(5);
+            Map<String, Object> paramsMap = new HashMap<>(5);
             paramsMap.put("account", smsChannelDo.getAccount());
             paramsMap.put("password", Objects.requireNonNull(DigestUtil.MD5(smsChannelDo.getPassword())).toLowerCase());
             paramsMap.put("phones", mobiles);
             paramsMap.put("content", content);
             paramsMap.put("sign", SIGN);
-            String reqResult = HttpUtil.doHttpPost(smsChannelDo.getRequestUrl(), JSONObject.toJSONString(paramsMap));
+            HttpResult reqResult = httpApiService.doPost(smsChannelDo.getRequestUrl(), paramsMap);
 
             log.info("SMS channel : 【" + smsChannelDo.getSmsChannelName() + "】 sendSms params=|", mobiles, "|", content, "|", reqResult);
 
-            JSONObject json = JSON.parseObject(reqResult);
+            JSONObject json = JSON.parseObject(reqResult.getBody());
             if (json.getInteger(CommonConstant.RESULT) == 0) {
                 result.setSucc(true);
                 result.setResultStr(json.getString("desc"));

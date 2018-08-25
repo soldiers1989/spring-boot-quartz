@@ -1,6 +1,7 @@
-package com.pgy.ginko.quartz.service.biz;
+package com.pgy.ginko.quartz.service.biz.utils;
 
 import com.pgy.ginko.quartz.common.http.HttpResult;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -23,6 +24,7 @@ import java.util.Map;
  * @author ginko
  * @date 2018-8-24 10:25:27
  */
+@Slf4j
 @Component
 public class HttpApiService {
 
@@ -89,6 +91,8 @@ public class HttpApiService {
      * @throws Exception
      */
     public HttpResult doPost(String url, Map<String, Object> map) throws Exception {
+
+        log.info("doPost begin url = {} param = {}", url, map);
         // 声明httpPost请求
         HttpPost httpPost = new HttpPost(url);
         // 加入配置信息
@@ -96,7 +100,7 @@ public class HttpApiService {
 
         // 判断map是否为空，不为空则进行遍历，封装from表单对象
         if (map != null) {
-            List<NameValuePair> list = new ArrayList<NameValuePair>();
+            List<NameValuePair> list = new ArrayList<>();
             for (Map.Entry<String, Object> entry : map.entrySet()) {
                 list.add(new BasicNameValuePair(entry.getKey(), entry.getValue().toString()));
             }
@@ -109,6 +113,7 @@ public class HttpApiService {
 
         // 发起请求
         CloseableHttpResponse response = this.httpClient.execute(httpPost);
+        log.info("doPost response = {}", response);
         return new HttpResult(response.getStatusLine().getStatusCode(), EntityUtils.toString(
                 response.getEntity(), "UTF-8"));
     }

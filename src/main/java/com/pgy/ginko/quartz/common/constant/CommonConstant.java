@@ -19,6 +19,32 @@ public class CommonConstant {
     public static final Long LONG_ZERO= 0L;
     public static final Long LONG_ONE= 1L;
 
+    /**
+     * HTTP Status Code
+     *
+     *  200： 服务器成功返回网页
+     *  301： 永久性重定向
+     *  302： 临时性重定向
+     *  403： 没有权限访问
+     *  404： 表示没有对应的资源
+     *  500： 服务器错误
+     *  503： 服务器停机或正在维护
+     *
+     */
+    public static final Integer HTTP_STATUS_200 = 200;
+    public static final Integer HTTP_STATUS_301 = 301;
+    public static final Integer HTTP_STATUS_302 = 302;
+    public static final Integer HTTP_STATUS_403 = 403;
+    public static final Integer HTTP_STATUS_404  = 404;
+    public static final Integer HTTP_STATUS_500  = 500;
+    public static final Integer HTTP_STATUS_503  =503 ;
+
+    /**
+     * Request result code
+     */
+    public static final Integer DEFAULT_SUCCESS_CODE = 10000;
+    public static final Integer DEFAULT_FAILED_CODE = 9999;
+    public static final String DEFAULT_SUCCESS_CODE_ZERO4 = "0000";
 
     /**
      * Request result message
