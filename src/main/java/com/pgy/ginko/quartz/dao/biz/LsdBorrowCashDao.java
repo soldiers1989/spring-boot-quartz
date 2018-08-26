@@ -3,6 +3,7 @@ package com.pgy.ginko.quartz.dao.biz;
 import com.pgy.ginko.quartz.model.biz.LsdBorrowCashDo;
 import com.pgy.ginko.quartz.model.biz.dto.LsdBorrowCashDto;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.BaseMapper;
 
@@ -16,13 +17,13 @@ import java.util.List;
 @Component(value = "lsdBorrowCashDao")
 public interface LsdBorrowCashDao extends BaseMapper<LsdBorrowCashDo> {
 
-    Long getBorrowCashOverdueMaxCount(Date startDate);
+    Long getBorrowCashOverdueMaxCount(@Param("startDate") Date startDate);
 
-    List<Long> getBorrowOverdueFirstDayCount(Date beginTime, Date endTime);
+    List<Long> getBorrowOverdueFirstDayCount(@Param("beginTime") Date beginTime, @Param("endTime") Date endTime);
 
-    List<Long> getBorrowOverdueAnotherDayCount(Date nowTime);
+    List<Long> getBorrowOverdueAnotherDayCount(@Param("nowTime") Date nowTime);
 
-    List<LsdBorrowCashDo> getBorrowCashOverdueByBorrowId(Date startDate, Date endDate, Integer beginId, Integer endId);
+    List<LsdBorrowCashDo> getBorrowCashOverdueByBorrowId(@Param("startDate") Date startDate, @Param("endDate") Date endDate, @Param("beginId") Integer beginId, @Param("endId") Integer endId);
 
-    List<LsdBorrowCashDto> getBorrowListByBorrowIds(List<Long> borrowIds);
+    List<LsdBorrowCashDto> getBorrowListByBorrowIds(@Param("borrowIds") List<Long> borrowIds);
 }

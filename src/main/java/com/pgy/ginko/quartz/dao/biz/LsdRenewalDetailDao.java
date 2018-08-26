@@ -2,6 +2,7 @@ package com.pgy.ginko.quartz.dao.biz;
 
 import com.pgy.ginko.quartz.model.biz.LsdRenewalDetailDo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.BaseMapper;
 
@@ -12,5 +13,5 @@ import tk.mybatis.mapper.common.BaseMapper;
 @Component(value = "lsdRenewalDetailDao")
 public interface LsdRenewalDetailDao extends BaseMapper<LsdRenewalDetailDo> {
 
-    LsdRenewalDetailDo getProcessingRenewalByBorrowId(Long borrowId);
+    LsdRenewalDetailDo getProcessingRenewalByBorrowId(@Param("borrowId") Long borrowId);
 }

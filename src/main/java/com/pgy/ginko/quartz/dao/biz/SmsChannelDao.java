@@ -12,6 +12,4 @@ import tk.mybatis.mapper.common.BaseMapper;
 @Component(value = "smsChannelDao")
 public interface SmsChannelDao extends BaseMapper<SmsChannelDo> {
 
-    SmsChannelDo findSmsChannel(SmsChannelDo query);
-
 }

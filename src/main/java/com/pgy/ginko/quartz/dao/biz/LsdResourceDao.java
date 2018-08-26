@@ -2,6 +2,7 @@ package com.pgy.ginko.quartz.dao.biz;
 
 import com.pgy.ginko.quartz.model.biz.LsdResourceDo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.BaseMapper;
 
@@ -14,8 +15,8 @@ import java.util.List;
 @Component(value = "lsdResourceDao")
 public interface LsdResourceDao extends BaseMapper<LsdResourceDo> {
 
-    List<LsdResourceDo> getResourceByType(String type);
+    List<LsdResourceDo> getResourceByType(@Param("type") String type);
 
-    LsdResourceDo getResourceByTypeAndSecType(String type, String secType);
+    LsdResourceDo getResourceByTypeAndSecType(@Param("type") String type, @Param("secType") String secType);
 
 }
