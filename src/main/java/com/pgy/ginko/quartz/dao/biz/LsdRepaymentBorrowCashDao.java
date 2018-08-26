@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.BaseMapper;
 
 /**
- * Created by Wangmx on 2018/8/26 0026.
+ * Created by Wangmx on 2018/8/26 .
  */
 @Mapper
 @Component(value = "lsdRepaymentBorrowCashDao")

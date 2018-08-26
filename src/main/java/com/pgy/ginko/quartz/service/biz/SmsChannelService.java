@@ -12,9 +12,6 @@ import org.springframework.stereotype.Component;
 @Component(value = "smsChannelService")
 public interface SmsChannelService {
 
-    /**
-     * 查询单个短信通道
-     */
     SmsChannelDo findSmsChannel(SmsChannelDo query);
 
 }

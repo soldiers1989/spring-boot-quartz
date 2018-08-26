@@ -29,7 +29,7 @@ public class RedisCacheAutoConfigTest {
     private StringRedisTemplate stringRedisTemplate;
 
     @Autowired
-    private RedisTemplate<String, Serializable> redisCacheTemplate;
+    private RedisTemplate<String, Object> redisCacheTemplate;
 
     @Test
     public void get() {
