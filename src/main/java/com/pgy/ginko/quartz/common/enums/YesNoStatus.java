@@ -31,7 +31,7 @@ public enum YesNoStatus {
         return null;
     }
 
-    public static Map<Integer, YesNoStatus> getCodeEnumMap() {
+    public static Map<Integer, YesNoStatus> getCodeEnumsMap() {
         if (codeMap != null && codeMap.size() > 0) {
             return codeMap;
         }

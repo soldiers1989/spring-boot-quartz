@@ -10,13 +10,13 @@
         id rid, gmt_create,gmt_modified,creator,modifier,data_type,type,type_desc,name,value,description,sec_type,value_1,value_2,value_3,value_4,sort
     </sql>
 
-    <select id="getResourceByType"  resultType="LsdResourceDo">
+    <select id="getResourceByType"  resultType="com.pgy.ginko.quartz.model.biz.LsdResourceDo">
         SELECT
         <include refid="queryFields" />
         FROM lsd_resource WHERE is_delete = 0 And type = #{type} ORDER BY sort DESC
     </select>
 
-    <select id="getResourceByTypeAndSecType" resultType="LsdResourceDo">
+    <select id="getResourceByTypeAndSecType" resultType="com.pgy.ginko.quartz.model.biz.LsdResourceDo">
         SELECT
         <include refid="queryAllFields" />
         FROM

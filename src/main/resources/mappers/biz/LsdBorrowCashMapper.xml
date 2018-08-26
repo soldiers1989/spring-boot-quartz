@@ -47,7 +47,7 @@
         and b.status = 5 ORDER BY b.id desc
     </select>
 
-    <select id="getBorrowCashOverdueByBorrowId" resultType="LsdBorrowCashDo">
+    <select id="getBorrowCashOverdueByBorrowId" resultType="com.pgy.ginko.quartz.model.biz.LsdBorrowCashDo">
         SELECT
         <include refid="queryFields" />
         FROM lsd_borrow_cash b
@@ -59,7 +59,7 @@
         and b.id BETWEEN #{beginId} and #{endId}
     </select>
 
-    <select id="getBorrowListByBorrowIds" resultType="com.ls.lsd.admin.dal.dto.borrow.LsdBorrowCashDto">
+    <select id="getBorrowListByBorrowIds" resultType="com.pgy.ginko.quartz.model.biz.dto.LsdBorrowCashDto">
         SELECT
         <include refid="queryFields" />
         ,uc.mobile

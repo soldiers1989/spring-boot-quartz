@@ -11,7 +11,7 @@
         base_bank_rate ,fail_reason
     </sql>
 
-    <select id="getProcessingRenewalByBorrowId" resultType="LsdRenewalDetailDo">
+    <select id="getProcessingRenewalByBorrowId" resultType="com.pgy.ginko.quartz.model.biz.LsdRenewalDetailDo">
         SELECT
         <include refid="queryFields" />
         FROM

@@ -2,7 +2,6 @@ package com.pgy.ginko.quartz.dao.biz;
 
 import com.pgy.ginko.quartz.model.biz.LsdBorrowCashDo;
 import com.pgy.ginko.quartz.model.biz.dto.LsdBorrowCashDto;
-import com.pgy.ginko.quartz.model.test.ScheduleJob;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.BaseMapper;

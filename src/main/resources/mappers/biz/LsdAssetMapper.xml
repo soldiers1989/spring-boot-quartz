@@ -2,7 +2,7 @@
         <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.pgy.ginko.quartz.dao.biz.LsdAssetDao">
 
-    <select id="getAssetByBorrowIdTypeNoFinished" resultType ="LsdAssetDo">
+    <select id="getAssetByBorrowIdTypeNoFinished" resultType ="com.pgy.ginko.quartz.model.biz.LsdAssetDo">
         select * from lsd_asset
         where borrow_id = #{borrowId} and `is_delete` = 0 ORDER by id desc limit 1
     </select>
