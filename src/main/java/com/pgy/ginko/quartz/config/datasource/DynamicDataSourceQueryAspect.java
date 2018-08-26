@@ -20,7 +20,7 @@ public class DynamicDataSourceQueryAspect {
 
     private final String[] QUERY_PREFIX = {"select"};
 
-    @Pointcut("execution( * com.pgy.ginko.quartz.dao.biz.*(..))")
+    @Pointcut("execution( * com.pgy.ginko.quartz.dao.*.*(..))")
     public void daoAspect() {
     }
 

@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 @Component
 public class DynamicDataSourceAnnotationAspect {
 
-    @Before("execution(* com.pgy.ginko.quartz.service.*.*(..)) || @annotation(com.pgy.ginko.quartz.annotation.DataSource)")
+    @Before("@annotation(com.pgy.ginko.quartz.annotation.DataSource)")
     public void beforeSwitchDataSource(JoinPoint point) {
 
         //获得当前访问的class

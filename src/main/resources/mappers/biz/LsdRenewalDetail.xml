@@ -1,0 +1,28 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pgy.ginko.quartz.dao.biz.LsdRenewalDetailDao">
+
+    <!--基本的sql查询字段 公共引用... -->
+    <sql id="queryFields">
+        id as
+        rid,is_delete,gmt_create,gmt_modified,borrow_id,status,remark,gmt_plan_repayment,renewal_amount,prior_interest,capital,
+        current_poundage,rebate_amount,actual_amount,user_id,card_name,card_number,pay_trade_no,trade_no,renewal_day,poundage_rate,
+        base_bank_rate ,fail_reason
+    </sql>
+
+    <select id="getProcessingRenewalByBorrowId" resultType="LsdRenewalDetailDo">
+        SELECT
+        <include refid="queryFields" />
+        FROM
+        `lsd_renewal_detail`
+        WHERE is_delete = 0
+        AND `status` = 2
+        AND `borrow_id` = ${borrowId}
+        limit 1
+    </select>
+
+</mapper>
+
+
+

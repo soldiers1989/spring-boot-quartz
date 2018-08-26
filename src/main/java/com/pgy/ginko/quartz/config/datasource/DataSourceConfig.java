@@ -129,7 +129,7 @@ public class DataSourceConfig {
         // 配置数据源，此处配置为关键配置，如果没有将 dynamicDataSource 作为数据源则不能实现切换
         sqlSessionFactoryBean.setDataSource(dynamicDataSource());
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mappers/**/*.xml"));
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.pgy.ginko.quartz.model");
+        sqlSessionFactoryBean.setTypeAliasesPackage("com.pgy.ginko.quartz.model.biz,com.pgy.ginko.quartz.model.collection,com.pgy.ginko.quartz.model.test");
         return sqlSessionFactoryBean;
     }
 

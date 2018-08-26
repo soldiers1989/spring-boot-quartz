@@ -1,7 +1,5 @@
 package com.pgy.ginko.quartz.service.biz.impl;
 
-import com.pgy.ginko.quartz.annotation.DataSource;
-import com.pgy.ginko.quartz.common.enums.DataSourceKey;
 import com.pgy.ginko.quartz.service.biz.BaseService;
 import tk.mybatis.mapper.common.BaseMapper;
 
@@ -12,7 +10,7 @@ import java.util.List;
  * Created by Wangmx on 2018/8/25 12:25.
  */
 public class BaseServiceImpl<T> implements BaseService<T> {
-    
+
     @Resource
     private BaseMapper<T> baseMapper;
 
