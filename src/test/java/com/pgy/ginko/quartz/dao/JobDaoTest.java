@@ -25,10 +25,9 @@ public class JobDaoTest {
     private JobDao jobDao;
 
     @Test
-    public void testDao() {
-        List<ScheduleJob> jobList = jobDao.getAllJob();
+    public void jobDaoTest() {
 
-        List<ScheduleJob> jobList1 = jobDao.getAllEnableJob();
+        List<ScheduleJob> allEnableJob = jobDao.getAllEnableJob();
 
         log.info("test Dao");
 

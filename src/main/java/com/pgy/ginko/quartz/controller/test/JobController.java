@@ -3,7 +3,7 @@ package com.pgy.ginko.quartz.controller.test;
 import com.pgy.ginko.quartz.common.response.CommonResponse;
 import com.pgy.ginko.quartz.common.response.ResponseUtil;
 import com.pgy.ginko.quartz.model.test.ScheduleJob;
-import com.pgy.ginko.quartz.service.test.JobService;
+import com.pgy.ginko.quartz.service.test.impl.JobService;
 import com.pgy.ginko.quartz.utils.ServiceException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

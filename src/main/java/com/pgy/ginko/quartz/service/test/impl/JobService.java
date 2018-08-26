@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.service.test;
+package com.pgy.ginko.quartz.service.test.impl;
 
 import com.pgy.ginko.quartz.annotation.DataSource;
 import com.pgy.ginko.quartz.common.enums.DataSourceKey;
