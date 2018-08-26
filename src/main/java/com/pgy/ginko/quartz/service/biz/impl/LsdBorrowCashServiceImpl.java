@@ -10,6 +10,7 @@ import com.pgy.ginko.quartz.service.biz.LsdBorrowCashService;
 import com.pgy.ginko.quartz.utils.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.common.BaseMapper;
 
 import javax.annotation.Resource;
 
@@ -22,6 +23,11 @@ public class LsdBorrowCashServiceImpl extends BaseServiceImpl<LsdBorrowCashDo> i
 
     @Resource
     private LsdBorrowCashDao lsdBorrowCashDao;
+
+    @Override
+    public BaseMapper<LsdBorrowCashDo> getMapper() {
+        return lsdBorrowCashDao;
+    }
 
     @Override
     public Long getBorrowCashOverdueMaxCount() {
@@ -66,6 +72,5 @@ public class LsdBorrowCashServiceImpl extends BaseServiceImpl<LsdBorrowCashDo> i
     public List<LsdBorrowCashDto> getBorrowUpdateListByBorrowIds(List<Long> borrowIds) {
         return null;
     }
-
 
 }

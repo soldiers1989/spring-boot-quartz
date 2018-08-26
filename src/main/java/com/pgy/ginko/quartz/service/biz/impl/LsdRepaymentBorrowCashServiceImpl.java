@@ -7,6 +7,7 @@ import com.pgy.ginko.quartz.model.biz.LsdRepaymentBorrowCashDo;
 import com.pgy.ginko.quartz.service.biz.LsdRepaymentBorrowCashService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.common.BaseMapper;
 
 import javax.annotation.Resource;
 
@@ -19,8 +20,14 @@ public class LsdRepaymentBorrowCashServiceImpl extends BaseServiceImpl<LsdRepaym
     private LsdRepaymentBorrowCashDao lsdRepaymentBorrowCashDao;
 
     @Override
+    public BaseMapper<LsdRepaymentBorrowCashDo> getMapper() {
+        return lsdRepaymentBorrowCashDao;
+    }
+
+    @Override
     public LsdRepaymentBorrowCashDo getProcessingRepaymentByBorrowId(Long borrowId) {
         return lsdRepaymentBorrowCashDao.getProcessingRepaymentByBorrowId(borrowId);
     }
+
 
 }

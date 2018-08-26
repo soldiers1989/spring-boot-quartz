@@ -8,6 +8,7 @@ import com.pgy.ginko.quartz.model.biz.LsdAssetDo;
 import com.pgy.ginko.quartz.service.biz.LsdAssetService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.common.BaseMapper;
 
 import javax.annotation.Resource;
 
@@ -18,6 +19,11 @@ public class LsdAssetServiceImpl extends BaseServiceImpl<LsdAssetDo> implements 
 
     @Resource
     private LsdAssetDao lsdAssetDao;
+
+    @Override
+    public BaseMapper<LsdAssetDo> getMapper() {
+        return lsdAssetDao;
+    }
 
     @Override
     public LsdAssetDo findAssetByBorrowIdTypeNoFinished(Long id, Integer code) {

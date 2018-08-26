@@ -9,10 +9,12 @@ import java.util.List;
 /**
  * Created by Wangmx on 2018/8/25 12:25.
  */
-public class BaseServiceImpl<T> implements BaseService<T> {
+public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
     @Resource
     private BaseMapper<T> baseMapper;
+
+    public abstract BaseMapper<T> getMapper();
 
     @Override
     public int deleteByPrimaryKey(Long rid) {

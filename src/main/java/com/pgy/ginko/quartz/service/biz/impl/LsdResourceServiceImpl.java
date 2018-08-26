@@ -8,6 +8,7 @@ import com.pgy.ginko.quartz.service.biz.LsdResourceService;
 import com.pgy.ginko.quartz.service.biz.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.common.BaseMapper;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -24,6 +25,11 @@ public class LsdResourceServiceImpl extends BaseServiceImpl<LsdResourceDo> imple
 
     @Resource
     private RedisUtil redisUtil;
+
+    @Override
+    public BaseMapper<LsdResourceDo> getMapper() {
+        return lsdResourceDao;
+    }
 
     @Override
     public List<LsdResourceDo> getResourceByType(String type) {

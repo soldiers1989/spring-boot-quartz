@@ -8,6 +8,7 @@ import com.pgy.ginko.quartz.model.biz.LsdRenewalDetailDo;
 import com.pgy.ginko.quartz.service.biz.LsdRenewalDetailService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.common.BaseMapper;
 
 import javax.annotation.Resource;
 
@@ -27,9 +28,15 @@ public class LsdRenewalDetailServiceImpl extends BaseServiceImpl<LsdRenewalDetai
     private LsdRenewalDetailDao lsdRenewalDetailDao;
 
     @Override
+    public BaseMapper<LsdRenewalDetailDo> getMapper() {
+        return lsdRenewalDetailDao;
+    }
+
+    @Override
     public LsdRenewalDetailDo getProcessingRenewalByBorrowId(Long borrowId) {
         return lsdRenewalDetailDao.getProcessingRenewalByBorrowId(borrowId);
     }
+
 
 
 }
