@@ -8,6 +8,7 @@ import com.pgy.ginko.quartz.model.test.ScheduleJob;
 import com.pgy.ginko.quartz.utils.ServiceException;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.Scheduler;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,7 @@ public class JobService {
     private JobDao jobDao;
 
     @Resource
+    @Qualifier("schedulerFactoryBean")
     private Scheduler scheduler;
 
     public List<ScheduleJob> getAllEnableJob() {
