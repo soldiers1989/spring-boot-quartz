@@ -1,6 +1,6 @@
 package com.pgy.ginko.quartz.controller.test;
 
-import com.pgy.ginko.quartz.service.biz.utils.HttpApiService;
+import com.pgy.ginko.quartz.service.biz.impl.HttpApiService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

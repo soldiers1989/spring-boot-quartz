@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.service.biz.utils;
+package com.pgy.ginko.quartz.service.biz.impl;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-@Component(value = "redisUtil")
-public final class RedisUtil {
+@Component()
+public class RedisService {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;

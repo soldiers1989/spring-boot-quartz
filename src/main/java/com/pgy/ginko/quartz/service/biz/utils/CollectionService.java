@@ -12,6 +12,7 @@ import com.pgy.ginko.quartz.model.collection.Bo.CollectionSystemReqRespBo;
 import com.pgy.ginko.quartz.service.biz.LsdBorrowCashOverdueService;
 import com.pgy.ginko.quartz.service.biz.LsdBorrowCashService;
 import com.pgy.ginko.quartz.service.biz.LsdRenewalDetailService;
+import com.pgy.ginko.quartz.service.biz.impl.HttpApiService;
 import com.pgy.ginko.quartz.utils.*;
 import com.pgy.ginko.quartz.utils.biz.DigestUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -28,12 +29,12 @@ import java.util.*;
 
 /**
  * @author ginko
- * @description CollectionSystemUtil
+ * @description CollectionService
  * @date 2018-8-23 21:17:54
  */
 @Slf4j
 @Component("collectionSystemUtil")
-public class CollectionSystemUtil {
+public class CollectionService {
 
     @Resource
     private LsdRenewalDetailService lsdRenewalDetailService;

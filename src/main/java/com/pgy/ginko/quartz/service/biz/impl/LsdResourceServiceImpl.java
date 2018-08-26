@@ -5,7 +5,6 @@ import com.pgy.ginko.quartz.common.enums.DataSourceKey;
 import com.pgy.ginko.quartz.dao.biz.LsdResourceDao;
 import com.pgy.ginko.quartz.model.biz.LsdResourceDo;
 import com.pgy.ginko.quartz.service.biz.LsdResourceService;
-import com.pgy.ginko.quartz.service.biz.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.BaseMapper;
@@ -24,7 +23,7 @@ public class LsdResourceServiceImpl extends BaseServiceImpl<LsdResourceDo> imple
     private LsdResourceDao lsdResourceDao;
 
     @Resource
-    private RedisUtil redisUtil;
+    private RedisService redisService;
 
     @Override
     public BaseMapper<LsdResourceDo> getMapper() {
@@ -39,12 +38,12 @@ public class LsdResourceServiceImpl extends BaseServiceImpl<LsdResourceDo> imple
     @Override
     public LsdResourceDo getResourceByTypeAndSecType(String type, String secType) {
         String cacheKey = SMS_RESOURCE_CODE_KEY + type + secType;
-        LsdResourceDo resource = (LsdResourceDo) redisUtil.get(cacheKey);
+        LsdResourceDo resource = (LsdResourceDo) redisService.get(cacheKey);
         if (resource == null) {
             resource = lsdResourceDao.getResourceByTypeAndSecType(type, secType);
             if (resource != null) {
                 try {
-                    redisUtil.set(cacheKey, resource);
+                    redisService.set(cacheKey, resource);
                 } catch (Exception e) {
                     log.debug("短信配置缓存异常", e);
                 }

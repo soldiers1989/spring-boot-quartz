@@ -8,9 +8,9 @@ import com.pgy.ginko.quartz.common.response.ResponseUtil;
 import com.pgy.ginko.quartz.model.biz.*;
 import com.pgy.ginko.quartz.model.collection.Bo.CollectionSystemReqRespBo;
 import com.pgy.ginko.quartz.service.biz.*;
-import com.pgy.ginko.quartz.service.biz.utils.CollectionSystemUtil;
-import com.pgy.ginko.quartz.service.biz.utils.HttpApiService;
-import com.pgy.ginko.quartz.service.biz.utils.RedisUtil;
+import com.pgy.ginko.quartz.service.biz.utils.CollectionService;
+import com.pgy.ginko.quartz.service.biz.impl.HttpApiService;
+import com.pgy.ginko.quartz.service.biz.impl.RedisService;
 import com.pgy.ginko.quartz.service.biz.utils.SmsUtil;
 import com.pgy.ginko.quartz.utils.BigDecimalUtil;
 import com.pgy.ginko.quartz.utils.DateUtil;
@@ -22,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -70,10 +69,10 @@ public class BorrowCashOverdueSyncCollectionController {
     private HttpApiService httpApiService;
 
     @Resource
-    private CollectionSystemUtil collectionSystemUtil;
+    private CollectionService collectionService;
 
     @Resource
-    private RedisUtil redisUtil;
+    private RedisService redisService;
 
     @Resource
     private SmsUtil smsUtil;
@@ -256,7 +255,7 @@ public class BorrowCashOverdueSyncCollectionController {
                 }
 
                 String lockKey = BizConstants.CACHE_KEY_APPLY_RENEWAL_LOCK + cashDo.getUserId();
-                boolean getLock = redisUtil.set(lockKey, "1", 30L);
+                boolean getLock = redisService.set(lockKey, "1", 30L);
                 try {
                     if (getLock) {
 
@@ -324,7 +323,7 @@ public class BorrowCashOverdueSyncCollectionController {
                     }
                 } finally {
                     if (getLock) {
-                        redisUtil.del(lockKey);
+                        redisService.del(lockKey);
                     }
                 }
             } catch (Exception e) {
@@ -353,10 +352,10 @@ public class BorrowCashOverdueSyncCollectionController {
                 if (borrowIds != null && borrowIds.size() > 0) {
                     //将数据PUSH 到催收系统  逾期超过一天的数据进行修改 逾期一天的数据 新增
                     if (TransOverdueBorrowCashType.ADD.getCode().equals(dataType)) {
-                        CollectionSystemReqRespBo respBo = collectionSystemUtil.syncAddDataToCollection(borrowIds);
+                        CollectionSystemReqRespBo respBo = collectionService.syncAddDataToCollection(borrowIds);
                         log.info("borrowCashOverdueSyncCollection sync collection add data borrowIds:(" + borrowIds.toString() + ") result:" + respBo.getMsg());
                     } else {
-                        CollectionSystemReqRespBo respBo = collectionSystemUtil.syncUpdateDataToCollection(borrowIds);
+                        CollectionSystemReqRespBo respBo = collectionService.syncUpdateDataToCollection(borrowIds);
                         log.info("borrowCashOverdueSyncCollection sync collection update data borrowIds:(" + borrowIds.toString() + ") result:" + respBo.getMsg());
                     }
                 }

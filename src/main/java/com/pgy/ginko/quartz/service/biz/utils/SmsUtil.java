@@ -11,6 +11,7 @@ import com.pgy.ginko.quartz.common.sms.SmsSendRequest;
 import com.pgy.ginko.quartz.common.sms.SmsSendResponse;
 import com.pgy.ginko.quartz.model.biz.SmsChannelDo;
 import com.pgy.ginko.quartz.service.biz.SmsChannelService;
+import com.pgy.ginko.quartz.service.biz.impl.HttpApiService;
 import com.pgy.ginko.quartz.utils.biz.ChuangLanSmsUtil;
 import com.pgy.ginko.quartz.utils.biz.DigestUtil;
 import lombok.Data;

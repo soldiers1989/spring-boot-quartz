@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.service.biz.utils;
+package com.pgy.ginko.quartz.service.biz.impl;
 
 import com.pgy.ginko.quartz.common.http.HttpResult;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import java.util.Map;
  * @date 2018-8-24 10:25:27
  */
 @Slf4j
-@Component
+@Component()
 public class HttpApiService {
 
     @Resource
@@ -33,7 +33,6 @@ public class HttpApiService {
 
     @Resource
     private RequestConfig config;
-
 
     /**
      * 不带参数的get请求，如果状态码为200，则返回body，如果不为200，则返回null
