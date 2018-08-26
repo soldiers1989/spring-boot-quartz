@@ -137,7 +137,7 @@ public class BorrowCashOverdueSyncCollectionController {
                 CountDownLatch countDown = new CountDownLatch(pageSum);
 
                 for (int i = 0; i < pageSum; i++) {
-                    threadPool.execute(new BorrowCashOverdueSyncCollection.SyncDataToCollection(borrowIdList.subList(i * pageSize, (i + 1) * pageSize >= count ? count : (i + 1) * pageSize), TransOverdueBorrowCashType.ADD.getCode(), countDown));
+                    threadPool.execute(new SyncDataToCollection(borrowIdList.subList(i * pageSize, (i + 1) * pageSize >= count ? count : (i + 1) * pageSize), TransOverdueBorrowCashType.ADD.getCode(), countDown));
                 }
                 countDown.await();
             }
@@ -165,7 +165,7 @@ public class BorrowCashOverdueSyncCollectionController {
                 CountDownLatch countDown = new CountDownLatch(pageSum);
 
                 for (int i = 0; i < pageSum; i++) {
-                    threadPool.execute(new BorrowCashOverdueSyncCollection.SyncDataToCollection(borrowIdList.subList(i * pageSize, (i + 1) * pageSize >= count ? count : (i + 1) * pageSize), TransOverdueBorrowCashType.UPDATE.getCode(), countDown));
+                    threadPool.execute(new SyncDataToCollection(borrowIdList.subList(i * pageSize, (i + 1) * pageSize >= count ? count : (i + 1) * pageSize), TransOverdueBorrowCashType.UPDATE.getCode(), countDown));
                 }
 
                 countDown.await();

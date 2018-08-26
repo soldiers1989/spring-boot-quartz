@@ -1,4 +1,4 @@
-package com.pgy.ginko.quartz.job;
+package com.pgy.ginko.quartz.job.test;
 
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobExecutionContext;

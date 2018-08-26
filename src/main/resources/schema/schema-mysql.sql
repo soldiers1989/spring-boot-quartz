@@ -176,10 +176,10 @@ CREATE INDEX i_schedule_job_id
   ON schedule_job (id);
 
 # INSERT INTO schedule_job (id, class_name, cron_expression, job_name, job_group, trigger_name, trigger_group, pause, enable, description, create_time, last_update_time)
-# VALUES (2, 'com.pgy.ginko.quartz.job.TestJob', '*/50 * * * * ?', 'testJob', 'TEST_GROUP', 'TEST_TRIGGER',
+# VALUES (2, 'com.pgy.ginko.quartz.job.test.TestJob', '*/50 * * * * ?', 'testJob', 'TEST_GROUP', 'TEST_TRIGGER',
 #            'TEST_GROUP', 0, 1, 'test Job for SpringBoot', '2018-02-12 14:14:03', '2018-02-12 15:23:24');
 #
 # INSERT INTO schedule_job (id, class_name, cron_expression, job_name, job_group, trigger_name, trigger_group, pause, enable, description, create_time, last_update_time)
-# VALUES (1, 'com.pgy.ginko.quartz.job.GinkoJob', '*/60 * * * * ?', 'ginkoJob', 'TEST_GROUP', 'TEST_TRIGGER',
+# VALUES (1, 'com.pgy.ginko.quartz.job.test.GinkoJob', '*/60 * * * * ?', 'ginkoJob', 'TEST_GROUP', 'TEST_TRIGGER',
 #            'TEST_GROUP', 0, 0, 'ginko Job for SpringBoot', '2018-8-22 20:22:58', '2018-8-22 20:23:02');
 #
