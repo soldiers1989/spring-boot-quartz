@@ -83,7 +83,7 @@ public class BorrowCashOverdueSyncCollectionController {
     private ExecutorService threadPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
 
     @GetMapping("/borrowCashOverdue/execute")
-    @ApiOperation(value = "条件查询产品")
+    @ApiOperation(value = "业务数据同步催收系统")
     public CommonResponse syncExecute() throws ServiceException {
 
         log.info("Start sync collection data, StartTime=" + new Date());
