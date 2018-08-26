@@ -3,7 +3,6 @@ package com.pgy.ginko.quartz.service.biz.impl;
 import com.pgy.ginko.quartz.service.biz.BaseService;
 import tk.mybatis.mapper.common.BaseMapper;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -11,68 +10,65 @@ import java.util.List;
  */
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
-    @Resource
-    private BaseMapper<T> baseMapper;
-
     public abstract BaseMapper<T> getMapper();
 
     @Override
     public int deleteByPrimaryKey(Long rid) {
-        return baseMapper.deleteByPrimaryKey(rid);
+        return getMapper().deleteByPrimaryKey(rid);
     }
 
     @Override
     public int delete(T t) {
-        return baseMapper.delete(t);
+        return getMapper().delete(t);
     }
 
     @Override
     public int insert(T t) {
-        return baseMapper.insert(t);
+        return getMapper().insert(t);
     }
 
     @Override
     public int insertSelective(T t) {
-        return baseMapper.insertSelective(t);
+        return getMapper().insertSelective(t);
     }
 
     @Override
     public boolean existsWithPrimaryKey(Long rid) {
-        return baseMapper.existsWithPrimaryKey(rid);
+        return getMapper().existsWithPrimaryKey(rid);
     }
 
     @Override
     public List<T> selectAll() {
-        return baseMapper.selectAll();
+        return getMapper().selectAll();
     }
 
     @Override
     public T selectByPrimaryKey(Long rid) {
-        return baseMapper.selectByPrimaryKey(rid);
+        return getMapper().selectByPrimaryKey(rid);
     }
 
     @Override
     public int selectCount(T t) {
-        return baseMapper.selectCount(t);
+        return getMapper().selectCount(t);
     }
 
     @Override
     public List<T> select(T t) {
-        return baseMapper.select(t);
+        return getMapper().select(t);
     }
 
     @Override
     public T selectOne(T t) {
-        return baseMapper.selectOne(t);
+        return getMapper().selectOne(t);
     }
 
     @Override
     public int updateByPrimaryKey(T t) {
-        return baseMapper.updateByPrimaryKey(t);
+        return getMapper().updateByPrimaryKey(t);
     }
 
     @Override
     public int updateByPrimaryKeySelective(T t) {
-        return baseMapper.updateByPrimaryKeySelective(t);
+        return getMapper().updateByPrimaryKeySelective(t);
     }
 }
