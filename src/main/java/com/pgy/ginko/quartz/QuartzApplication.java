@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @description 定时任务
  * @date 2018-8-22 13:25:56
  */
-
 @EnableScheduling
 @EnableSwagger2Doc
 @SpringBootApplication
