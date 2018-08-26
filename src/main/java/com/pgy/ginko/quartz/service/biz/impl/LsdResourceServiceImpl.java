@@ -1,5 +1,7 @@
 package com.pgy.ginko.quartz.service.biz.impl;
 
+import com.pgy.ginko.quartz.annotation.DataSource;
+import com.pgy.ginko.quartz.common.enums.DataSourceKey;
 import com.pgy.ginko.quartz.dao.biz.LsdResourceDao;
 import com.pgy.ginko.quartz.model.biz.LsdResourceDo;
 import com.pgy.ginko.quartz.service.biz.LsdResourceService;
@@ -11,6 +13,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Slf4j
+@DataSource(DataSourceKey.BIZ)
 @Service("lsdResourceService")
 public class LsdResourceServiceImpl extends BaseServiceImpl<LsdResourceDo> implements LsdResourceService {
 
@@ -43,7 +46,6 @@ public class LsdResourceServiceImpl extends BaseServiceImpl<LsdResourceDo> imple
         }
         return resource;
     }
-
 
 }
 

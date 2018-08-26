@@ -1,17 +1,22 @@
 package com.pgy.ginko.quartz.service.biz.impl;
 
 
+import com.pgy.ginko.quartz.annotation.DataSource;
+import com.pgy.ginko.quartz.common.enums.DataSourceKey;
 import com.pgy.ginko.quartz.dao.biz.LsdBorrowCashDao;
 import com.pgy.ginko.quartz.model.biz.LsdBorrowCashDo;
 import com.pgy.ginko.quartz.model.biz.dto.LsdBorrowCashDto;
 import com.pgy.ginko.quartz.service.biz.LsdBorrowCashService;
 import com.pgy.ginko.quartz.utils.DateUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 import java.util.*;
 
+@Slf4j
+@DataSource(DataSourceKey.BIZ)
 @Service("lsdBorrowCashService")
 public class LsdBorrowCashServiceImpl extends BaseServiceImpl<LsdBorrowCashDo> implements LsdBorrowCashService {
 

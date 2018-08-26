@@ -1,6 +1,8 @@
 package com.pgy.ginko.quartz.service.biz.impl;
 
 
+import com.pgy.ginko.quartz.annotation.DataSource;
+import com.pgy.ginko.quartz.common.enums.DataSourceKey;
 import com.pgy.ginko.quartz.dao.biz.LsdRenewalDetailDao;
 import com.pgy.ginko.quartz.model.biz.LsdRenewalDetailDo;
 import com.pgy.ginko.quartz.service.biz.LsdRenewalDetailService;
@@ -17,6 +19,7 @@ import javax.annotation.Resource;
  * @date 2017-07-24 21:25:45 Copyright 本内容仅限于杭州霖梓网络科技股份有限公司内部传阅，禁止外泄以及用于其他的商业目的
  */
 @Slf4j
+@DataSource(DataSourceKey.BIZ)
 @Service("lsdRenewalDetailService")
 public class LsdRenewalDetailServiceImpl extends BaseServiceImpl<LsdRenewalDetailDo> implements LsdRenewalDetailService {
 

@@ -7,6 +7,8 @@ import com.pgy.ginko.quartz.utils.ServiceException;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.CronTrigger;
 import org.quartz.Scheduler;
+import org.quartz.impl.StdScheduler;
+import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -23,11 +25,10 @@ public class ApplicationListener implements CommandLineRunner {
     @Resource
     private JobService jobService;
 
-    @Resource
-    private Scheduler scheduler;
-
     @Override
     public void run(String... args) throws Exception {
+
+        Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
         // Run schedule job when Application startup
         List<ScheduleJob> scheduleJobList = jobService.getAllEnableJob();
