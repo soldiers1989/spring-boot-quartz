@@ -11,4 +11,8 @@ import org.springframework.stereotype.Service;
 public class LsdBorrowCashOverdueServiceImpl extends BaseServiceImpl<LsdBorrowCashOverdueDo> implements LsdBorrowCashOverdueService {
 
 
-} 
+    @Override
+    public LsdBorrowCashOverdueDo queryOneByBorrowCashIdOrderByGmtCreateDesc(Long rid) {
+        return null;
+    }
+}

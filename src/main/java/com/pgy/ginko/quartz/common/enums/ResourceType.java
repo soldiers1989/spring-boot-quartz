@@ -36,7 +36,7 @@ public enum ResourceType {
         return null;
     }
 
-    public static Map<String, ResourceType> getCodeRoleTypeMap() {
+    public static Map<String, ResourceType> getResourceTypeMap() {
         if (!CollectionUtils.isEmpty(resourceTypeMap)) {
             return resourceTypeMap;
         }

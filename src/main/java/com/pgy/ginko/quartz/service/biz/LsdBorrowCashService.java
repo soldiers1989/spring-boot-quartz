@@ -1,6 +1,7 @@
 package com.pgy.ginko.quartz.service.biz;
 
 import com.pgy.ginko.quartz.model.biz.LsdBorrowCashDo;
+import com.pgy.ginko.quartz.model.biz.dto.LsdBorrowCashDto;
 
 import java.util.Date;
 import java.util.List;
@@ -23,6 +24,7 @@ public interface LsdBorrowCashService extends BaseService<LsdBorrowCashDo> {
 
     List<LsdBorrowCashDo> getBorrowCashOverdueByBorrowId(int beginId, int endId);
 
+    List<LsdBorrowCashDto> getBorrowListByBorrowIds(List<Long> borrowIds);
 
-
+    List<LsdBorrowCashDto> getBorrowUpdateListByBorrowIds(List<Long> borrowIds);
 }

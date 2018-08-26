@@ -9,4 +9,5 @@ import com.pgy.ginko.quartz.model.biz.LsdBorrowCashOverdueDo;
  */
 public interface LsdBorrowCashOverdueService extends BaseService<LsdBorrowCashOverdueDo> {
 
+    LsdBorrowCashOverdueDo queryOneByBorrowCashIdOrderByGmtCreateDesc(Long rid);
 }

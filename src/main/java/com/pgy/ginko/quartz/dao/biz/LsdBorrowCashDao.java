@@ -1,6 +1,7 @@
 package com.pgy.ginko.quartz.dao.biz;
 
 import com.pgy.ginko.quartz.model.biz.LsdBorrowCashDo;
+import com.pgy.ginko.quartz.model.biz.dto.LsdBorrowCashDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.common.BaseMapper;
@@ -23,4 +24,5 @@ public interface LsdBorrowCashDao extends BaseMapper<LsdBorrowCashDo> {
 
     List<LsdBorrowCashDo> getBorrowCashOverdueByBorrowId(Date startDate, Date endDate, Integer beginId, Integer endId);
 
+    List<LsdBorrowCashDto> getBorrowListByBorrowIds(List<Long> borrowIds);
 }
