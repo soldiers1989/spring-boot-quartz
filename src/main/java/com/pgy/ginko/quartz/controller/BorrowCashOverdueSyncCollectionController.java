@@ -1,5 +1,6 @@
 package com.pgy.ginko.quartz.controller;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.pgy.ginko.quartz.common.constant.BizConstants;
 import com.pgy.ginko.quartz.common.enums.*;
 import com.pgy.ginko.quartz.common.http.HttpResult;
@@ -8,9 +9,9 @@ import com.pgy.ginko.quartz.common.response.ResponseUtil;
 import com.pgy.ginko.quartz.model.biz.*;
 import com.pgy.ginko.quartz.model.collection.Bo.CollectionSystemReqRespBo;
 import com.pgy.ginko.quartz.service.biz.*;
-import com.pgy.ginko.quartz.service.biz.utils.CollectionService;
 import com.pgy.ginko.quartz.service.biz.impl.HttpApiService;
 import com.pgy.ginko.quartz.service.biz.impl.RedisService;
+import com.pgy.ginko.quartz.service.biz.utils.CollectionService;
 import com.pgy.ginko.quartz.service.biz.utils.SmsUtil;
 import com.pgy.ginko.quartz.utils.BigDecimalUtil;
 import com.pgy.ginko.quartz.utils.DateUtil;
@@ -32,9 +33,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author Wangmx
@@ -80,13 +79,15 @@ public class BorrowCashOverdueSyncCollectionController {
     @Value("${pgy.collection.url}")
     private static String collectionUrl;
 
-    private ExecutorService threadPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
-
     @GetMapping("/borrowCashOverdue/execute")
     @ApiOperation(value = "业务数据同步催收系统")
     public CommonResponse syncExecute() throws ServiceException {
 
         log.info("Start sync collection data, StartTime=" + new Date());
+
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("quartz-pool-%d").build();
+        ExecutorService threadPool = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors() + 1, 200, 0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<>(1024), namedThreadFactory, new ThreadPoolExecutor.CallerRunsPolicy());
 
         LsdResourceDo lsdResourceDo = lsdResourceService.getResourceByTypeAndSecType(ResourceType.COLLECTION_DATE_CONFIGURATION.getCode(), ResourceSecType.COLLECTION_DATE_CONFIGURATION.getCode());
         Date currDate = new Date();
@@ -192,7 +193,7 @@ public class BorrowCashOverdueSyncCollectionController {
         private List<LsdBorrowCashDo> borrowList;
         CountDownLatch latch;
 
-        public OverdueTask(List<LsdBorrowCashDo> borrowList, CountDownLatch latch) {
+        OverdueTask(List<LsdBorrowCashDo> borrowList, CountDownLatch latch) {
             this.borrowList = borrowList;
             this.latch = latch;
         }
@@ -338,7 +339,7 @@ public class BorrowCashOverdueSyncCollectionController {
         String dataType;
         CountDownLatch count;
 
-        public SyncDataToCollection(List<Long> borrowIds, String dataType, CountDownLatch count) {
+        SyncDataToCollection(List<Long> borrowIds, String dataType, CountDownLatch count) {
             this.borrowIds = borrowIds;
             this.dataType = dataType;
             this.count = count;
@@ -394,6 +395,8 @@ public class BorrowCashOverdueSyncCollectionController {
         overdue.setInterest(interest);
         overdue.setUserId(userId);
         overdue.setRealInterest(realInterest);
+        overdue.setIsDelete(0L);
+        overdue.setGmtCreate(DateUtil.getNow());
         return overdue;
     }
 

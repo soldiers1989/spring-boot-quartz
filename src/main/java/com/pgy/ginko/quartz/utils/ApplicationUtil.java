@@ -12,7 +12,7 @@ import static com.pgy.ginko.quartz.common.constant.CommonConstant.DATE_TIME_FORM
  * @author ginko
  * @date 2018-8-22 13:19:26
  */
-public class ApplicationUtils {
+public class ApplicationUtil {
 
     /**
      * Format date string.

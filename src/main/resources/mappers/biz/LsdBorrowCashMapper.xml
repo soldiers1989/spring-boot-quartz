@@ -3,16 +3,12 @@
 <mapper namespace="com.pgy.ginko.quartz.dao.biz.LsdBorrowCashDao">
 
     <sql id="queryFields">
-        b.id
-        rid,b.gmt_create,b.gmt_modified,b.borrow_no,b.user_id,b.borrow_days,b.amount,b.status
-        as status,b.remark,b.card_number,b.card_name,
-        b.overdue_day,b.overdue_amount,b.arrival_amount,b.gmt_arrival,
+        b.id rid,b.gmt_create,b.gmt_modified,b.borrow_no,b.user_id,b.borrow_days,b.amount,b.status
+        status,b.remark,b.card_number,b.card_name,b.overdue_day,b.overdue_amount,b.arrival_amount,b.gmt_arrival,
         b.poundage,b.rate_amount,b.overdue_status,b.review_status,b.repay_amount,b.address,b.rish_order_no,
-        b.gmt_plan_repayment gmtPlanRepayment,b.sum_rate sumRate,b.sum_overdue
-        sumOverdue,b.sum_rebate,b.sum_renewal_poundage,b.renewal_num
-        renewalNum,
-        b.province,b.city,b.county,b.address as
-        idcardAddress,b.success_num,b.poundage_rate,b.base_bank_rate,b.user_coupon_id,b.coupon_amount,b.activity_amount
+        b.gmt_plan_repayment gmtPlanRepayment,b.sum_rate sumRate,b.sum_overdue sumOverdue,b.sum_rebate,b.sum_renewal_poundage,
+        b.renewal_num renewalNum,b.province,b.city,b.county,b.address idcardAddress,b.success_num,b.poundage_rate,
+        b.base_bank_rate,b.user_coupon_id,b.coupon_amount,b.activity_amount
     </sql>
 
 	<select id="getBorrowCashOverdueMaxCount" resultType="java.lang.Long">
@@ -55,7 +51,7 @@
         and b.id not in (select borrow_cash_id
         from `lsd_borrow_cash_overdue`
         WHERE gmt_create>=#{startDate}
-        and gmt_create &lt; #{endDate}
+        and gmt_create &lt; #{endDate})
         and b.id BETWEEN #{beginId} and #{endId}
     </select>
 
@@ -70,7 +66,7 @@
         where b.is_delete=0 and uc.is_main = 1 and uc.status=1
         and b.status =5
         and b.id in
-        (<foreach collection="list" item="item" index="index"  separator="," >
+        (<foreach collection="borrowIds" item="item" index="index"  separator="," >
             #{item}
         </foreach>)
     </select>

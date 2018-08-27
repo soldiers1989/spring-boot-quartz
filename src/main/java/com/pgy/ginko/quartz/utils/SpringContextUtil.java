@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author acer
  */
 @Component
-public class SpringContextUtils implements ApplicationContextAware {
+public class SpringContextUtil implements ApplicationContextAware {
 
     /**
      * The constant applicationContext.
@@ -19,7 +19,7 @@ public class SpringContextUtils implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        SpringContextUtils.applicationContext = applicationContext;
+        SpringContextUtil.applicationContext = applicationContext;
     }
 
     /**
