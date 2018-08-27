@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.pgy.ginko.quartz.common.enums.TransOverdueBorrowCashType;
 import com.pgy.ginko.quartz.common.http.HttpResult;
+import com.pgy.ginko.quartz.common.response.ResponseUtil;
 import com.pgy.ginko.quartz.model.biz.LsdBorrowCashOverdueDo;
 import com.pgy.ginko.quartz.model.biz.LsdRenewalDetailDo;
 import com.pgy.ginko.quartz.model.biz.dto.LsdBorrowCashDto;
@@ -65,7 +66,7 @@ public class CollectionService {
         List<LsdBorrowCashDto> batchRecords = lsdBorrowCashService.getBorrowListByBorrowIds(borrowIds);
 
         for (LsdBorrowCashDto borrowCash : batchRecords) {
-            Map<String, String> reqBo = new HashMap<>();
+            Map<String, String> reqBo = new HashMap<>(20);
             //用户ID
             reqBo.put("consumer_no", borrowCash.getUserId() + "");
             //借款No

@@ -99,7 +99,7 @@ public class BorrowCashOverdueSyncCollectionController {
 
             if (totalRecord == null || totalRecord == 0) {
                 log.info("borrowCashOverdueJob run finished, cashOverdueList size is 0. time=" + new Date());
-                return ResponseUtil.generateResponse(Boolean.FALSE);
+                return ResponseUtil.generateResponse("borrowCashOverdueJob run finished, cashOverdueList size is 0",Boolean.FALSE);
             }
             final int totalPageNum = (int) ((totalRecord + pageSize - 1) / pageSize);
             log.info("borrowCashOverdueJob totalPageNum=" + totalPageNum);
@@ -119,7 +119,7 @@ public class BorrowCashOverdueSyncCollectionController {
             latch.await();
         } catch (Exception e) {
             log.error("Job:borrowCashOverdueSyncCollection 执行计算逾期费时异常!errorMsg:" + e.getMessage());
-            return ResponseUtil.generateResponse(Boolean.FALSE);
+            return ResponseUtil.generateResponse(e.getMessage(),Boolean.FALSE);
 
         }
 
@@ -182,6 +182,7 @@ public class BorrowCashOverdueSyncCollectionController {
                     log.error(time + "job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!发送短信异常! errorMsg:" + e.getMessage());
                 }
             }
+            return ResponseUtil.generateResponse("job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!errorMsg:" + e.getMessage(),Boolean.FALSE);
         }
         log.info("End sync collection data,EndTime=" + new Date());
 
