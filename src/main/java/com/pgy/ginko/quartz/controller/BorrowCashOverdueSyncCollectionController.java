@@ -77,7 +77,7 @@ public class BorrowCashOverdueSyncCollectionController {
     private SmsUtil smsUtil;
 
     @Value("${pgy.collection.url}")
-    private static String collectionUrl;
+    private String collectionUrl;
 
     @GetMapping("/borrowCashOverdue/execute")
     @ApiOperation(value = "业务数据同步催收系统")
@@ -290,7 +290,7 @@ public class BorrowCashOverdueSyncCollectionController {
                         }
                         cashDo.setOverdueDay(cashDo.getOverdueDay() + 1);
                         if (cashDo.getOverdueDay() == BizConstants.OVERDUE_30_DAYS) {
-                            Map<String, Object> params = new HashMap<>();
+                            Map<String, Object> params = new HashMap<>(4);
                             params.put("consumerNo", cashDo.getUserId() + "");
                             params.put("category", 1 + "");
                             params.put("remark", "逾期三十天用户");
