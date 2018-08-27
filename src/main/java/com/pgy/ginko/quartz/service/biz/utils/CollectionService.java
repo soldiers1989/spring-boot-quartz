@@ -49,7 +49,7 @@ public class CollectionService {
     private HttpApiService httpApiService;
 
     @Value("${pgy.collection.url}")
-    private static String collectionUrl;
+    private String collectionUrl;
 
     /**
      * 美期同步 新增数据入催 新方法
