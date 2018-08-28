@@ -33,6 +33,12 @@ public class GinkoController {
         return "hello";
     }
 
+    @GetMapping("/mock")
+    @ApiOperation(value = "mock测试")
+    public String mock(String msg) {
+        return msg;
+    }
+
     @GetMapping("/{id}")
     @ApiOperation(value = "测试条件查询")
     public void test(@PathVariable("id") Long jobId) {
