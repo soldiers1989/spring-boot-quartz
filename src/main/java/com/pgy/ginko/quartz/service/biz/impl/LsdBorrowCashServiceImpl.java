@@ -70,7 +70,7 @@ public class LsdBorrowCashServiceImpl extends BaseServiceImpl<LsdBorrowCashDo> i
 
     @Override
     public List<LsdBorrowCashDto> getBorrowUpdateListByBorrowIds(List<Long> borrowIds) {
-        return null;
+        return lsdBorrowCashDao.getBorrowListByBorrowIds(borrowIds);
     }
 
 }

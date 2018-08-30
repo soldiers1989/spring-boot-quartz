@@ -26,4 +26,5 @@ public interface LsdBorrowCashDao extends BaseMapper<LsdBorrowCashDo> {
     List<LsdBorrowCashDo> getBorrowCashOverdueByBorrowId(@Param("startDate") Date startDate, @Param("endDate") Date endDate, @Param("beginId") Integer beginId, @Param("endId") Integer endId);
 
     List<LsdBorrowCashDto> getBorrowListByBorrowIds(@Param("borrowIds") List<Long> borrowIds);
+
 }
