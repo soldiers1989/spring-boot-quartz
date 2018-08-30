@@ -361,7 +361,7 @@ public class BorrowCashOverdueSyncCollectionController {
             } catch (Exception e) {
                 try {
                     Long time = System.currentTimeMillis();
-                    log.error("time: " + time + ", borrowCashOverdueSyncCollection sync collection data borrowIds:(" + borrowIds.toString() + ")failed,errorMsg:" + e);
+                    log.error("time: " + DateUtil.getNow() + ", borrowCashOverdueSyncCollection sync collection data borrowIds:(" + borrowIds.toString() + ")failed,errorMsg:" + e);
                     List<LsdResourceDo> sendMailMobiles = lsdResourceService.getResourceByType(ResourceType.SYNC_COLLECTION_FAILED_SEND_OPERATOR.getCode());
                     for (LsdResourceDo sendMailMobile : sendMailMobiles) {
                         smsUtil.sendZhPushException(sendMailMobile.getValue(), "执行第一天逾期入催任务失败！请及时查看。Time:" + time);
