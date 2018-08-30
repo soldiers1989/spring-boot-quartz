@@ -93,7 +93,7 @@ public class ResponseUtil {
         try {
             response.getWriter().write(JSONUtil.toJSONString(object));
         } catch (IOException e) {
-            log.error(e.getMessage());
+            log.error("response: ",e);
         }
         return response;
     }

@@ -71,7 +71,7 @@ public class DynamicDataSourceContextHolder {
             CONTEXT_HOLDER.set(slaveDataSourceKeys.get(datasourceKeyIndex) == null ? "" : slaveDataSourceKeys.get(datasourceKeyIndex).toString());
             counter++;
         } catch (Exception e) {
-            log.error("Switch slave datasource failed, error message is {}", e.getMessage());
+            log.error("Switch slave datasource failed, error message is {}", e);
             useMasterDataSource();
             e.printStackTrace();
         } finally {
@@ -87,7 +87,7 @@ public class DynamicDataSourceContextHolder {
         try {
             CONTEXT_HOLDER.set(DataSourceKey.QUARTZ.getName());
         } catch (Exception e) {
-            log.error("Switch slave datasource failed, error message is {}", e.getMessage());
+            log.error("Switch slave datasource failed, error message is {}", e);
             useMasterDataSource();
             e.printStackTrace();
         } finally {

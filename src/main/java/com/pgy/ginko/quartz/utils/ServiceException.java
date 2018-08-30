@@ -16,7 +16,7 @@ public class ServiceException extends Exception {
     private static final long serialVersionUID = 3084168374922475640L;
 
     public ServiceException(String msg, Exception e) {
-        super(msg + "\n" + e.getMessage());
+        super(msg + "\n" + e);
     }
 
     public ServiceException(String msg) {

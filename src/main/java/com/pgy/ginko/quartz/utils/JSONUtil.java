@@ -39,7 +39,7 @@ public class JSONUtil {
         try {
             result = objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
-            log.error("Generate JSON String error!" + e.getMessage());
+            log.error("Generate JSON String error!" + e);
             e.printStackTrace();
         }
         return result;

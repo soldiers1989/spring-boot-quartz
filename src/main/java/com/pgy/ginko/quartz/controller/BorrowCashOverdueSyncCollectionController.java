@@ -29,10 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 
 /**
@@ -118,8 +115,8 @@ public class BorrowCashOverdueSyncCollectionController {
 
             latch.await();
         } catch (Exception e) {
-            log.error("Job:borrowCashOverdueSyncCollection 执行计算逾期费时异常!errorMsg:" + e.getMessage());
-            return ResponseUtil.generateResponse(e.getMessage(),Boolean.FALSE);
+            log.error("Job:borrowCashOverdueSyncCollection 执行计算逾期费时异常!errorMsg:" + e);
+            return ResponseUtil.generateResponse(Arrays.toString(e.getStackTrace()),Boolean.FALSE);
 
         }
 
@@ -150,7 +147,7 @@ public class BorrowCashOverdueSyncCollectionController {
                 try {
                     smsUtil.sendZhPushException(sendMailMobile.getValue(), "执行第一天逾期入催任务失败！请及时查看。Time:" + time);
                 } catch (Exception smsException) {
-                    log.error(time + " job:borrowCashOverdueSyncCollection 第一天入催任务执行失败发送短信异常! errorMsg:" + smsException.getMessage());
+                    log.error(time + " job:borrowCashOverdueSyncCollection 第一天入催任务执行失败发送短信异常! errorMsg:" + smsException);
                 }
             }
         }
@@ -172,17 +169,17 @@ public class BorrowCashOverdueSyncCollectionController {
             }
         } catch (Exception e) {
             Long time = (new Date()).getTime();
-            log.error(time + "job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!errorMsg:" + e.getMessage());
+            log.error(time + "job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!errorMsg:" + e);
             List<LsdResourceDo> sendMailMobiles = lsdResourceService.getResourceByType(ResourceType.SYNC_COLLECTION_FAILED_SEND_OPERATOR.getCode());
 
             for (LsdResourceDo sendMailMobile : sendMailMobiles) {
                 try {
                     smsUtil.sendZhPushException(sendMailMobile.getValue(), "执行逾期数据更新催收系统案件数据任务失败！请及时查看。Time:" + time);
                 } catch (Exception e1) {
-                    log.error(time + "job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!发送短信异常! errorMsg:" + e.getMessage());
+                    log.error(time + "job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!发送短信异常! errorMsg:" + e);
                 }
             }
-            return ResponseUtil.generateResponse("job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!errorMsg:" + e.getMessage(),Boolean.FALSE);
+            return ResponseUtil.generateResponse("job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!errorMsg:" + e,Boolean.FALSE);
         }
         log.info("End sync collection data,EndTime=" + new Date());
 
@@ -364,7 +361,7 @@ public class BorrowCashOverdueSyncCollectionController {
             } catch (Exception e) {
                 try {
                     Long time = System.currentTimeMillis();
-                    log.error(time + "borrowCashOverdueSyncCollection sync collection data borrowIds:(" + borrowIds.toString() + ")failed,errorMsg:" + e.getMessage());
+                    log.error("time: " + time + ", borrowCashOverdueSyncCollection sync collection data borrowIds:(" + borrowIds.toString() + ")failed,errorMsg:" + e);
                     List<LsdResourceDo> sendMailMobiles = lsdResourceService.getResourceByType(ResourceType.SYNC_COLLECTION_FAILED_SEND_OPERATOR.getCode());
                     for (LsdResourceDo sendMailMobile : sendMailMobiles) {
                         smsUtil.sendZhPushException(sendMailMobile.getValue(), "执行第一天逾期入催任务失败！请及时查看。Time:" + time);
