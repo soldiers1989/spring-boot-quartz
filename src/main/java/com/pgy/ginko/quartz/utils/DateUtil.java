@@ -22,6 +22,13 @@ public class DateUtil {
      * 格式 ：yyyy-MM-dd HH:mm:ss
      */
     public static final String DATEFORMAT_STR_001 = "yyyy-MM-dd HH:mm:ss";
+
+    /**
+     * 格式 ：yyyyMMddHHmmssSSS
+     */
+
+    public static final String DATE_TIME_FULL_ALL = "yyyyMMddHHmmssSSS";
+
     /**
      * 格式 ：yyyy-MM-dd
      */
@@ -64,6 +71,7 @@ public class DateUtil {
 
     /**
      * 获得当前日期
+     *
      * @return
      */
     public static Date getNow() {
@@ -177,8 +185,9 @@ public class DateUtil {
             long time1 = cal.getTimeInMillis();
             cal.setTime(d2);
             long time2 = cal.getTimeInMillis();
-            if (time1 > time2)
+            if (time1 > time2) {
                 b = true;
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -187,12 +196,13 @@ public class DateUtil {
 
     /**
      * 计算两个日期之间相差的天数
+     *
      * @param date1 开始时间
      * @param date2 结束时间
      * @return
      */
-    public static int daysBetween(Date date1, Date date2){
-        DateFormat sdf=new SimpleDateFormat(DATEFORMAT_STR_007);
+    public static int daysBetween(Date date1, Date date2) {
+        DateFormat sdf = new SimpleDateFormat(DATEFORMAT_STR_007);
         Calendar cal = Calendar.getInstance();
         try {
             Date d1 = sdf.parse(DateUtil.dateStr007(date1));
@@ -210,13 +220,14 @@ public class DateUtil {
 
     /**
      * 计算两个日期之间相差的小时数
+     *
      * @param date1
      * @param date2
      * @return
      */
     public static int hoursBetween(Date date1, Date date2) {
 
-        DateFormat sdf=new SimpleDateFormat(DATEFORMAT_STR_007);
+        DateFormat sdf = new SimpleDateFormat(DATEFORMAT_STR_007);
         Calendar cal = Calendar.getInstance();
         try {
             Date d1 = sdf.parse(DateUtil.dateStr007(date1));
@@ -235,13 +246,14 @@ public class DateUtil {
 
     /**
      * 计算两个日期之间相差的分钟数
+     *
      * @param date1
      * @param date2
      * @return
      */
     public static int minuteBetween(Date date1, Date date2) {
 
-        DateFormat sdf=new SimpleDateFormat(DATEFORMAT_STR_001);
+        DateFormat sdf = new SimpleDateFormat(DATEFORMAT_STR_001);
         Calendar cal = Calendar.getInstance();
         try {
             Date d1 = sdf.parse(DateUtil.dateStr001(date1));
@@ -250,7 +262,7 @@ public class DateUtil {
             long time1 = cal.getTimeInMillis();
             cal.setTime(d2);
             long time2 = cal.getTimeInMillis();
-            return Integer.parseInt(String.valueOf((time2 - time1) / (1000*60)));
+            return Integer.parseInt(String.valueOf((time2 - time1) / (1000 * 60)));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -262,17 +274,24 @@ public class DateUtil {
     }
 
     public static String formatWithDateTimeShort(final Date date) {
-        if(date == null){
-            return "";
-        }
-        return formatDate(date, DATEFORMAT_STR_001);
-    }
-    public static String formatWithDateTimeFullAll(final Date date) {
-        if(date == null){
+        if (date == null) {
             return "";
         }
         return formatDate(date, DATEFORMAT_STR_001);
     }
 
+    public static String formatWithDateTimeFull(final Date date) {
+        if (date == null) {
+            return "";
+        }
+        return formatDate(date, DATEFORMAT_STR_001);
+    }
+
+    public static String formatWithDateTimeFullAll(final Date date) {
+        if (date == null) {
+            return "";
+        }
+        return formatDate(date, DATE_TIME_FULL_ALL);
+    }
 
 }
