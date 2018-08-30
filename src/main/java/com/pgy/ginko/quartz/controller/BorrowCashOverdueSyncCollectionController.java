@@ -96,7 +96,7 @@ public class BorrowCashOverdueSyncCollectionController {
 
             if (totalRecord == null || totalRecord == 0) {
                 log.info("borrowCashOverdueJob run finished, cashOverdueList size is 0. time=" + new Date());
-                return ResponseUtil.generateResponse("borrowCashOverdueJob run finished, cashOverdueList size is 0",Boolean.FALSE);
+                return ResponseUtil.generateResponse("borrowCashOverdueJob run finished, cashOverdueList size is 0", Boolean.FALSE);
             }
             final int totalPageNum = (int) ((totalRecord + pageSize - 1) / pageSize);
             log.info("borrowCashOverdueJob totalPageNum=" + totalPageNum);
@@ -116,7 +116,7 @@ public class BorrowCashOverdueSyncCollectionController {
             latch.await();
         } catch (Exception e) {
             log.error("Job:borrowCashOverdueSyncCollection 执行计算逾期费时异常!errorMsg:" + e);
-            return ResponseUtil.generateResponse(Arrays.toString(e.getStackTrace()),Boolean.FALSE);
+            return ResponseUtil.generateResponse(Arrays.toString(e.getStackTrace()), Boolean.FALSE);
 
         }
 
@@ -179,7 +179,7 @@ public class BorrowCashOverdueSyncCollectionController {
                     log.error(time + "job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!发送短信异常! errorMsg:" + e);
                 }
             }
-            return ResponseUtil.generateResponse("job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!errorMsg:" + e,Boolean.FALSE);
+            return ResponseUtil.generateResponse("job:borrowCashOverdueSyncCollection 执行逾期数据更新催收系统案件数据任务失败!errorMsg:" + e, Boolean.FALSE);
         }
         log.info("End sync collection data,EndTime=" + new Date());
 
@@ -311,7 +311,7 @@ public class BorrowCashOverdueSyncCollectionController {
                             lsdAssetDo.setOverdueAmount(cashDo.getOverdueAmount());
                             lsdAssetDo.setRealOverdue(lsdAssetDo.getRealOverdue().add(newOverdueAmount));
 
-                            if (DateUtil.compare(new Date(), lsdAssetDo.getGmtPlanAssetrepay())) {
+                            if (lsdAssetDo.getGmtPlanAssetrepay() != null && DateUtil.compare(new Date(), lsdAssetDo.getGmtPlanAssetrepay())) {
                                 lsdAssetDo.setOverdueAssetStatus(OverdueStatus.OVERDUE.getCode());
                                 lsdAssetDo.setOverdueAssetAmount(lsdAssetDo.getOverdueAssetAmount().add(newOverdueAmount));
                                 lsdAssetDo.setOverdueAssetDay(lsdAssetDo.getOverdueAssetDay() + 1);
