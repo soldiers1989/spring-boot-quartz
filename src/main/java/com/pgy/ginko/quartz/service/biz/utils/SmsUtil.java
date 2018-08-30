@@ -45,7 +45,7 @@ public class SmsUtil {
 
     public boolean sendZhPushException(String mobile, String content) throws Exception {
         SmsChannelDo query = new SmsChannelDo();
-        query.setSmsUserfulCode(SmsUsefulEnum.NORMAL.toString());
+        query.setSmsUserfulCode(SmsUsefulEnum.NORMAL.name());
         SmsChannelDo smsChannel = smsChannelService.findSmsChannel(query);
         if (smsChannel == null) {
             return false;

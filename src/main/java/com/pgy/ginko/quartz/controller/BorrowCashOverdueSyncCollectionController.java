@@ -143,7 +143,7 @@ public class BorrowCashOverdueSyncCollectionController {
             }
         } catch (Exception e) {
             Long time = System.currentTimeMillis();
-            log.error(time + "job:borrowCashOverdueSyncCollection 第一天入催任务执行失败!errorMsg:" + e.getMessage());
+            log.error(time + "job:borrowCashOverdueSyncCollection 第一天入催任务执行失败!errorMsg:" + e);
 
             List<LsdResourceDo> sendMailMobiles = lsdResourceService.getResourceByType(ResourceType.SYNC_COLLECTION_FAILED_SEND_OPERATOR.getCode());
             for (LsdResourceDo sendMailMobile : sendMailMobiles) {
